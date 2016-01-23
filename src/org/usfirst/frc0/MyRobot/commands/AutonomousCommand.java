@@ -6,6 +6,7 @@ package org.usfirst.frc0.MyRobot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc0.MyRobot.Robot;
+import org.usfirst.frc0.MyRobot.RobotMap;
 
 
 @SuppressWarnings("unused")
@@ -22,10 +23,16 @@ public class  AutonomousCommand extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
+    	RobotMap.EncoderLeft.reset();
+    	RobotMap.EncoderRight.reset();
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+    	while (RobotMap.EncoderRight.getDistance() < 5)
+    	{
+    		Robot.driveTrain.robotDrive(1, 1);
+    	}
     }
 
     // Make this return true when this Command no longer needs to run execute()
