@@ -84,12 +84,16 @@ public class Robot extends IterativeRobot {
         autonomousModes.addDefault("Low Bar Autonomous",  new LowBarAuto());
         autonomousModes.addObject("Rough Terrain Autonomous", new RoughTerrainAuto());
         autonomousModes.addObject("Rock Wall Autonomous", new RockWallAuto());
+        autonomousModes.addObject("Moat Autonomous", new MoatAuto());
+        autonomousModes.addObject("Rampart Autonomous", new RampartAuto());
         SmartDashboard.putData("Autonomous Mode Chooser", autonomousModes);
     }
 
     public void autonomousInit() {
         // schedule the autonomous command (example)
-        if (autonomousCommand != null) autonomousCommand.start();
+        RobotMap.EncoderLeft.reset();
+        RobotMap.EncoderRight.reset();
+    	if (autonomousCommand != null) autonomousCommand.start();
         autonomousCommand = (Command) autonomousModes.getSelected();
         autonomousCommand.start();
     }
@@ -98,8 +102,10 @@ public class Robot extends IterativeRobot {
      * This function is called periodically during autonomous
      */
     public void autonomousPeriodic() {
-    	
-        Scheduler.getInstance().run();
+    	Scheduler.getInstance().run();
+    	SmartDashboard.putNumber("Encoder Left", Robot.sensors.encoderLeft.getDistance());
+        SmartDashboard.putNumber("Encoder Right", Robot.sensors.encoderRight.getDistance());
+        
     }
 
     public void teleopInit() {

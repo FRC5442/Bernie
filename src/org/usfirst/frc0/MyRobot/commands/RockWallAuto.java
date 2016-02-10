@@ -1,18 +1,20 @@
 package org.usfirst.frc0.MyRobot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
+import org.usfirst.frc0.MyRobot.Robot;
+import org.usfirst.frc0.MyRobot.RobotMap;
+import edu.wpi.first.wpilibj.Timer;
 
 public class RockWallAuto extends Command{
 
 	@Override
 	protected void initialize() {
-		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	protected void execute() {
-		// TODO Auto-generated method stub
+		while()
 		
 	}
 

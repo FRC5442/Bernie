@@ -2,7 +2,7 @@ package org.usfirst.frc0.MyRobot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
 
-public class MoatAutonomous extends Command {
+public class MoatAuto extends Command {
 
 	@Override
 	protected void initialize() {
