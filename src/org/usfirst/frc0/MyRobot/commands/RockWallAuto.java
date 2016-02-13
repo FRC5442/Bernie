@@ -14,8 +14,11 @@ public class RockWallAuto extends Command{
 
 	@Override
 	protected void execute() {
-		while()
-		
+		while(-1 * (RobotMap.EncoderLeft.getDistance()) <= 6);{
+			Robot.driveTrain.robotDrive(.65, .65);
+		}
+		Timer.delay(1);
+		Robot.driveTrain.robotDrive(0,0);
 	}
 
 	@Override
