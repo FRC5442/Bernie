@@ -8,6 +8,7 @@ package org.usfirst.frc0.MyRobot;
 
 import edu.wpi.first.wpilibj.*;
 import edu.wpi.first.wpilibj.CounterBase.EncodingType;
+import edu.wpi.first.wpilibj.interfaces.Potentiometer;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import java.util.Vector;
 import com.kauailabs.navx_mxp.AHRS;
@@ -27,11 +28,15 @@ public class RobotMap {
 	public static SpeedController dTSparkController3;
 	public static SpeedController dTSparkController4;
 	public static SpeedController intake;
+	public static CANTalon catapultWinch;
+	public static Potentiometer winchPot;
 	public static RobotDrive driveTrainRobotDrive;
 	public static Encoder EncoderLeft;
 	public static Encoder EncoderRight;
 	public static AHRS imu;
 	public static SerialPort navXBoard;
+	public static Compressor compressor;
+	public static DoubleSolenoid cylinder;
 
 
     public static void init() {
@@ -48,6 +53,9 @@ public class RobotMap {
     	dTSparkController2, dTSparkController4);
     	intake = new Talon(5);
     	//check port
+    	catapultWinch = new CANTalon(1);
+    	catapultWinch.setFeedbackDevice(CANTalon.FeedbackDevice.AnalogPot);
+    	winchPot = new AnalogPotentiometer(0, 360, 30);
     	// Encoder Code CP&P - Fred
     	EncoderLeft = new Encoder(0, 1, false, EncodingType.k4X);
         LiveWindow.addSensor("Encoders", "Quadrature Encoder Left", EncoderLeft);

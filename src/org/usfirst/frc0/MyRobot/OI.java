@@ -48,6 +48,7 @@ public class OI {
     public JoystickButton xboxBButton;
     public JoystickButton xboxXButton;
     public JoystickButton xboxYButton;
+    public JoystickButton xboxAButton2;
 
     public OI() {
         xboxController = new Joystick(0);
@@ -57,7 +58,8 @@ public class OI {
         xboxBButton = new JoystickButton(xboxController, 2);
         xboxXButton = new JoystickButton(xboxController, 3);
         xboxYButton = new JoystickButton(xboxController, 4);
-        
+        xboxAButton2 = new JoystickButton(xboxController2, 1);
+        xboxAButton2.whenPressed(new Load());
         // SmartDashboard Buttons
         //SmartDashboard.putData("Autonomous Command", new AutonomousCommand());
         

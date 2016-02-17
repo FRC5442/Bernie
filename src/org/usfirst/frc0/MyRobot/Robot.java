@@ -37,12 +37,14 @@ public class Robot extends IterativeRobot {
     public static Sensors sensors;
     public static NavXBoard navXBoard;
     public static Intake intake;
+    public static Catapult catapult;
     
     public void robotInit() {
     RobotMap.init();
     	intake = new Intake();
         driveTrain = new DriveTrain();
         sensors = new Sensors();
+        catapult = new Catapult();
         prefs = Preferences.getInstance();
         Robot.sensors.encoderLeft.reset();
         Robot.sensors.encoderRight.reset();
