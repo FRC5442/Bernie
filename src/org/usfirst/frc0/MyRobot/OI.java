@@ -4,7 +4,7 @@
 // 	Joystick Buttons
 // 	Last Edit: 
 
-
+// Plan: Get the navX Board working and programmed. When the auto is done, have navx say where the robot is facing, and have it face a certain way using PID. Recall videos
 package org.usfirst.frc0.MyRobot;
 
 import org.usfirst.frc0.MyRobot.commands.*;
@@ -43,6 +43,7 @@ public class OI {
     */
     
     public static Joystick xboxController;
+    public static Joystick xboxController2;
     public JoystickButton xboxAButton;
     public JoystickButton xboxBButton;
     public JoystickButton xboxXButton;
@@ -50,6 +51,7 @@ public class OI {
 
     public OI() {
         xboxController = new Joystick(0);
+        xboxController2 = new Joystick(1);
         
         xboxAButton = new JoystickButton(xboxController, 1);
         xboxBButton = new JoystickButton(xboxController, 2);
@@ -64,6 +66,8 @@ public class OI {
     public Joystick getXboxController() {
         return xboxController;
     }
-
+    public Joystick getXboxController2() {
+    	return xboxController2;
+    }
 }
 

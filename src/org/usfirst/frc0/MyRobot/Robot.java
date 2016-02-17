@@ -19,10 +19,12 @@ import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-
 import org.usfirst.frc0.MyRobot.commands.*;
 import org.usfirst.frc0.MyRobot.subsystems.*;
+import org.usfirst.frc0.MyRobot.RobotMap;
+import org.usfirst.frc0.MyRobot.subsystems.NavXBoard;
 
+import com.kauailabs.nav6.frc.IMU;
 
 public class Robot extends IterativeRobot {
 
@@ -32,15 +34,17 @@ public class Robot extends IterativeRobot {
     public static OI oi;
     public static DriveTrain driveTrain;
     public static Sensors sensors;
+    public static NavXBoard navXBoard;
     
     public void robotInit() {
     RobotMap.init();
+
         driveTrain = new DriveTrain();
         sensors = new Sensors();
         prefs = Preferences.getInstance();
         Robot.sensors.encoderLeft.reset();
         Robot.sensors.encoderRight.reset();
-        
+        navXBoard = new NavXBoard();
         oi = new OI();
         			
       
@@ -73,6 +77,8 @@ public class Robot extends IterativeRobot {
     public void autonomousInit() {
         RobotMap.EncoderLeft.reset();
         RobotMap.EncoderRight.reset();
+        RobotMap.navXBoard.reset();
+    	RobotMap.imu.zeroYaw();
     	if (autonomousCommand != null) autonomousCommand.start();
         autonomousCommand = (Command) autonomousModes.getSelected();
         autonomousCommand.start();
@@ -89,7 +95,7 @@ public class Robot extends IterativeRobot {
     }
 
     public void teleopInit() {
-        
+    	
     	if (autonomousCommand != null) autonomousCommand.cancel();
         
     }

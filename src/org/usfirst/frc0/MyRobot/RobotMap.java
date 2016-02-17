@@ -10,6 +10,8 @@ import edu.wpi.first.wpilibj.*;
 import edu.wpi.first.wpilibj.CounterBase.EncodingType;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import java.util.Vector;
+import com.kauailabs.navx_mxp.AHRS;
+
 
 /**
  * The RobotMap is a mapping from the ports sensors and actuators are wired into
@@ -24,9 +26,13 @@ public class RobotMap {
 	public static SpeedController dTSparkController2;
 	public static SpeedController dTSparkController3;
 	public static SpeedController dTSparkController4;
+	public static SpeedController intakeController;
 	public static RobotDrive driveTrainRobotDrive;
 	public static Encoder EncoderLeft;
 	public static Encoder EncoderRight;
+	public static AHRS imu;
+	public static SerialPort navXBoard;
+
 
     public static void init() {
     	//dTSparkController1 = new Talon(1);
@@ -40,7 +46,8 @@ public class RobotMap {
     	dTSparkController4 = new Victor(4);
     	driveTrainRobotDrive = new RobotDrive(dTSparkController1, dTSparkController3,
     	dTSparkController2, dTSparkController4);
-    	
+    	intakeController = new Talon(5);
+    	//check port
     	// Encoder Code CP&P - Fred
     	EncoderLeft = new Encoder(0, 1, false, EncodingType.k4X);
         LiveWindow.addSensor("Encoders", "Quadrature Encoder Left", EncoderLeft);
@@ -51,6 +58,10 @@ public class RobotMap {
         LiveWindow.addSensor("Encoders", "Quadrature EncoderRight", EncoderRight);
         EncoderRight.setSamplesToAverage(5);
         EncoderRight.setDistancePerPulse(1.0/360);
+        
+        navXBoard = new SerialPort(57600,SerialPort.Port.kMXP);
+        byte update_rate_hz = 50;
+        imu = new AHRS(navXBoard,update_rate_hz);
     	    	
     }
 }
