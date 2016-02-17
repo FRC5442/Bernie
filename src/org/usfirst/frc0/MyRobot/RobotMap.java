@@ -26,7 +26,7 @@ public class RobotMap {
 	public static SpeedController dTSparkController2;
 	public static SpeedController dTSparkController3;
 	public static SpeedController dTSparkController4;
-	public static SpeedController intakeController;
+	public static SpeedController intake;
 	public static RobotDrive driveTrainRobotDrive;
 	public static Encoder EncoderLeft;
 	public static Encoder EncoderRight;
@@ -46,7 +46,7 @@ public class RobotMap {
     	dTSparkController4 = new Victor(4);
     	driveTrainRobotDrive = new RobotDrive(dTSparkController1, dTSparkController3,
     	dTSparkController2, dTSparkController4);
-    	intakeController = new Talon(5);
+    	intake = new Talon(5);
     	//check port
     	// Encoder Code CP&P - Fred
     	EncoderLeft = new Encoder(0, 1, false, EncodingType.k4X);

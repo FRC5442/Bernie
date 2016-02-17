@@ -1,22 +1,21 @@
 package org.usfirst.frc0.MyRobot.commands;
 
+import org.usfirst.frc0.MyRobot.OI;
 import org.usfirst.frc0.MyRobot.Robot;
-import org.usfirst.frc0.MyRobot.RobotMap;
 
 import edu.wpi.first.wpilibj.command.Command;
 
-public class Intake extends Command{
+public class Intaking extends Command{
 
 	@Override
 	protected void initialize() {
 		// TODO Auto-generated method stub
-		
+		requires(Robot.intake);
 	}
 
-	@Override
 	protected void execute() {
 		// TODO Auto-generated method stub
-		Robot.IntakeController.move();
+		Robot.intake.move(OI.xboxController2.getRawAxis(5));
 	}
 
 	@Override
@@ -36,5 +35,6 @@ public class Intake extends Command{
 		// TODO Auto-generated method stub
 		
 	}
+
 
 }

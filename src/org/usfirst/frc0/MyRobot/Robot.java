@@ -26,6 +26,7 @@ import org.usfirst.frc0.MyRobot.subsystems.NavXBoard;
 
 import com.kauailabs.nav6.frc.IMU;
 
+@SuppressWarnings("unused")
 public class Robot extends IterativeRobot {
 
     Command autonomousCommand;
@@ -35,10 +36,11 @@ public class Robot extends IterativeRobot {
     public static DriveTrain driveTrain;
     public static Sensors sensors;
     public static NavXBoard navXBoard;
+    public static Intake intake;
     
     public void robotInit() {
     RobotMap.init();
-
+    	intake = new Intake();
         driveTrain = new DriveTrain();
         sensors = new Sensors();
         prefs = Preferences.getInstance();

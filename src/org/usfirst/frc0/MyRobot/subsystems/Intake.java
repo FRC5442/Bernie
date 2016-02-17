@@ -6,15 +6,14 @@ import edu.wpi.first.wpilibj.SpeedController;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 public class Intake extends Subsystem{
-	SpeedController intakeController = RobotMap.intakeController;
+	SpeedController intake = RobotMap.intake;
 	@Override
 	protected void initDefaultCommand() {
 		// TODO Auto-generated method stub
 		
 	}   
-	private void move (double speed) {
+	public void move (double speed) {
 		// TODO Auto-generated method stub
-		intakeController.set(speed);
+		intake.set(speed);
 	}
-
 }
