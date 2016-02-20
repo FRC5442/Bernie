@@ -38,6 +38,7 @@ public class Robot extends IterativeRobot {
     public static NavXBoard navXBoard;
     public static Intake intake;
     public static Catapult catapult;
+    public static LatchCylinder latchCylinder;
     
     public void robotInit() {
     RobotMap.init();
@@ -45,6 +46,7 @@ public class Robot extends IterativeRobot {
         driveTrain = new DriveTrain();
         sensors = new Sensors();
         catapult = new Catapult();
+        latchCylinder = new LatchCylinder();
         prefs = Preferences.getInstance();
         Robot.sensors.encoderLeft.reset();
         Robot.sensors.encoderRight.reset();
