@@ -72,6 +72,7 @@ public class Robot extends IterativeRobot {
          * Rock Wall
          * Moat
          * Rampart
+         * Portcullis
          */
         autonomousModes = new SendableChooser();
         autonomousModes.addDefault("Low Bar Autonomous",  new LowBarAuto());
@@ -79,6 +80,7 @@ public class Robot extends IterativeRobot {
         autonomousModes.addObject("Rock Wall Autonomous", new RockWallAuto());
         autonomousModes.addObject("Moat Autonomous", new MoatAuto());
         autonomousModes.addObject("Rampart Autonomous", new RampartAuto());
+        autonomousModes.addObject("Portcullis Autonomous", new PortcullisAuto());
         SmartDashboard.putData("Autonomous Mode Chooser", autonomousModes);
     }
 
