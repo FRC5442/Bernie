@@ -22,7 +22,6 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.usfirst.frc0.MyRobot.commands.*;
 import org.usfirst.frc0.MyRobot.subsystems.*;
 import org.usfirst.frc0.MyRobot.RobotMap;
-import org.usfirst.frc0.MyRobot.subsystems.NavXBoard;
 
 import com.kauailabs.nav6.frc.IMU;
 
@@ -39,6 +38,8 @@ public class Robot extends IterativeRobot {
     public static Intake intake;
     public static Catapult catapult;
     public static LatchCylinder latchCylinder;
+    public static WinchCylinder winchCylinder;
+    public static Arm arm;
     
     public void robotInit() {
     RobotMap.init();
@@ -52,6 +53,7 @@ public class Robot extends IterativeRobot {
         Robot.sensors.encoderRight.reset();
         navXBoard = new NavXBoard();
         oi = new OI();
+        arm = new Arm();
         			
       
     }

@@ -49,6 +49,9 @@ public class OI {
     public JoystickButton xboxXButton;
     public JoystickButton xboxYButton;
     public JoystickButton xboxAButton2;
+    public JoystickButton xboxBButton2;
+    public JoystickButton xboxXButton2;
+    public JoystickButton xboxYButton2;
 
     public OI() {
         xboxController = new Joystick(0);
@@ -59,7 +62,12 @@ public class OI {
         xboxXButton = new JoystickButton(xboxController, 3);
         xboxYButton = new JoystickButton(xboxController, 4);
         xboxAButton2 = new JoystickButton(xboxController2, 1);
-        xboxAButton2.whenPressed(new Load());
+        xboxAButton2.whenPressed(new ArmDown());
+        xboxBButton2 = new JoystickButton(xboxController2, 2);
+        xboxBButton2.whenPressed(new Load()); 
+        xboxXButton2 = new JoystickButton(xboxController2, 3);
+        xboxYButton2 = new JoystickButton(xboxController2, 4);
+        xboxYButton2.whenPressed(new ArmUp());
         // SmartDashboard Buttons
         //SmartDashboard.putData("Autonomous Command", new AutonomousCommand());
         

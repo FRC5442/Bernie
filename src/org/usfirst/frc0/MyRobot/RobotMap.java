@@ -28,6 +28,7 @@ public class RobotMap {
 	public static SpeedController dTSparkController3;
 	public static SpeedController dTSparkController4;
 	public static SpeedController intake;
+	public static SpeedController armMotor;
 	public static CANTalon SRX1;
 	public static CANTalon SRX2;
 	public static SpeedController SR1;
@@ -41,6 +42,7 @@ public class RobotMap {
 	public static SerialPort navXBoard;
 	public static Compressor compressor;
 	public static DoubleSolenoid cylinder;
+	public static DoubleSolenoid wCylinder;
 
 
     public static void init() {
@@ -55,6 +57,8 @@ public class RobotMap {
     	dTSparkController4 = new Victor(4);
     	driveTrainRobotDrive = new RobotDrive(dTSparkController1, dTSparkController3,
     	dTSparkController2, dTSparkController4);
+    	
+    	armMotor = new Talon(12345);
     	
     	SRX1 = new CANTalon(50002);
     	SRX2 = new CANTalon(50003);
@@ -77,11 +81,16 @@ public class RobotMap {
         EncoderLeft.setSamplesToAverage(5);
         EncoderLeft.setDistancePerPulse(1.0/360);
         //EncoderLeft.setPIDSourceParameter(PIDSourceParameter.kDistance);
+        
         EncoderRight = new Encoder(2, 3, false, EncodingType.k4X);
         LiveWindow.addSensor("Encoders", "Quadrature EncoderRight", EncoderRight);
         EncoderRight.setSamplesToAverage(5);
         EncoderRight.setDistancePerPulse(1.0/360);
+        
         cylinder = new DoubleSolenoid(0, 0, 1);
+        
+        wCylinder = new DoubleSolenoid(0, 0, 2);
+        
         navXBoard = new SerialPort(57600,SerialPort.Port.kMXP);
         byte update_rate_hz = 50;
         imu = new AHRS(navXBoard,update_rate_hz);
