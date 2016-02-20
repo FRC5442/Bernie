@@ -42,6 +42,7 @@ public class ChevalAuto extends Command{
 	protected void end() {
 		// TODO Auto-generated method stub
 		org.usfirst.frc0.MyRobot.Robot.driveTrain.robotDrive(0, 0);	
+		Robot.arm.turn(0);
 	}
 
 	@Override
