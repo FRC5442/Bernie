@@ -6,7 +6,7 @@ import org.usfirst.frc0.MyRobot.RobotMap;
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 
-public class PortcullisAuto extends Command{
+public class ChevalAuto extends Command{
 
 	@Override
 	protected void initialize() {
@@ -18,20 +18,18 @@ public class PortcullisAuto extends Command{
 
 	@Override
 	protected void execute() {
-	Robot.arm.turn(-1);
-	Timer.delay(3);
-	Robot.arm.turn(0);
-	while(RobotMap.EncoderLeft.getDistance() < 1.5){
+		// TODO Auto-generated method stub
+	while(RobotMap.EncoderLeft.getDistance() < 1.3){
 		org.usfirst.frc0.MyRobot.Robot.driveTrain.robotDrive(.65, .65);
 	}
-	//move approx 5'to reach 
 	org.usfirst.frc0.MyRobot.Robot.driveTrain.robotDrive(0, 0);
-	Robot.arm.turn(1);
-	Timer.delay(2);
+	Robot.arm.turn(-1);
+	Timer.delay(3);
 	Robot.arm.turn(0);
 	while(RobotMap.EncoderLeft.getDistance() < 5.6){
 		org.usfirst.frc0.MyRobot.Robot.driveTrain.robotDrive(.65, .65);
 	}
+	
 	}
 
 	@Override
@@ -43,8 +41,7 @@ public class PortcullisAuto extends Command{
 	@Override
 	protected void end() {
 		// TODO Auto-generated method stub
-		org.usfirst.frc0.MyRobot.Robot.driveTrain.robotDrive(0, 0);
-		Robot.arm.turn(0);
+		org.usfirst.frc0.MyRobot.Robot.driveTrain.robotDrive(0, 0);	
 	}
 
 	@Override

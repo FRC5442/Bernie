@@ -81,7 +81,7 @@ public class Robot extends IterativeRobot {
         autonomousModes.addObject("Moat Autonomous", new MoatAuto());
         autonomousModes.addObject("Rampart Autonomous", new RampartAuto());
         autonomousModes.addObject("Portcullis Autonomous", new PortcullisAuto());
-        autonomousModes.addObject("Cheval Autonomous", object);
+        autonomousModes.addObject("Cheval Autonomous", new ChevalAuto());
         SmartDashboard.putData("Autonomous Mode Chooser", autonomousModes);
     }
 
