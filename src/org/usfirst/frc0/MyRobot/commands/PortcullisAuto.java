@@ -18,7 +18,9 @@ public class PortcullisAuto extends Command{
 
 	@Override
 	protected void execute() {
-		// TODO Auto-generated method stub
+	Robot.arm.turn(-1);
+	Timer.delay(3);
+	Robot.arm.turn(0);
 	while(RobotMap.EncoderLeft.getDistance() < 1.5){
 		org.usfirst.frc0.MyRobot.Robot.driveTrain.robotDrive(.65, .65);
 	}
