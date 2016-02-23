@@ -40,6 +40,8 @@ public class Robot extends IterativeRobot {
     public static LatchCylinder latchCylinder;
     public static WinchCylinder winchCylinder;
     public static Arm arm;
+    public static ParallelBars parallelBars;
+    public static Lights lights;
     
     public void robotInit() {
     RobotMap.init();
@@ -54,7 +56,8 @@ public class Robot extends IterativeRobot {
         navXBoard = new NavXBoard();
         oi = new OI();
         arm = new Arm();
-        			
+        parallelBars = new ParallelBars();
+        lights = new Lights();
       
     }
 
@@ -102,6 +105,9 @@ public class Robot extends IterativeRobot {
     	Scheduler.getInstance().run();
     	SmartDashboard.putNumber("Encoder Left", Robot.sensors.encoderLeft.getDistance());
         SmartDashboard.putNumber("Encoder Right", Robot.sensors.encoderRight.getDistance());
+        double Volts = RobotMap.PressureGauge.getVoltage();
+        double Pressure = 250*(Volts/5)-25;
+        SmartDashboard.putNumber("Pneumatic Pressure", Pressure);
         
     }
 
@@ -118,6 +124,9 @@ public class Robot extends IterativeRobot {
         Scheduler.getInstance().run();
         SmartDashboard.putNumber("Encoder Left", Robot.sensors.encoderLeft.getDistance());
         SmartDashboard.putNumber("Encoder Right", Robot.sensors.encoderRight.getDistance());
+        double Volts = RobotMap.PressureGauge.getVoltage();
+        double Pressure = 250*(Volts/5)-25;
+        SmartDashboard.putNumber("Pneumatic Pressure", Pressure);
     }
 
     /**
