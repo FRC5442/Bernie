@@ -21,6 +21,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.usfirst.frc0.MyRobot.commands.*;
 import org.usfirst.frc0.MyRobot.subsystems.*;
+import org.usfirst.frc0.MyRobot.subsystems.Pneumatics;
 import org.usfirst.frc0.MyRobot.RobotMap;
 
 import com.kauailabs.nav6.frc.IMU;
@@ -42,6 +43,7 @@ public class Robot extends IterativeRobot {
     public static Arm arm;
     public static ParallelBars parallelBars;
     public static Lights lights;
+    public static Pneumatics pneumatics;
     
     public void robotInit() {
     RobotMap.init();
@@ -58,7 +60,7 @@ public class Robot extends IterativeRobot {
         arm = new Arm();
         parallelBars = new ParallelBars();
         lights = new Lights();
-      
+        pneumatics = new Pneumatics();
     }
 
     public void disabledInit(){

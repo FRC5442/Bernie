@@ -6,7 +6,8 @@ import edu.wpi.first.wpilibj.SpeedController;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 public class Intake extends Subsystem{
-	SpeedController intake = RobotMap.intake;
+	SpeedController intakeRoller = RobotMap.intakeRoller;
+	//SpeedController parallelBar = RobotMap.parallelBar;
 	@Override
 	protected void initDefaultCommand() {
 		// TODO Auto-generated method stub
@@ -14,6 +15,7 @@ public class Intake extends Subsystem{
 	}   
 	public void move (double speed) {
 		// TODO Auto-generated method stub
-		intake.set(speed);
+		intakeRoller.set(speed);
+		//parallelBar.set(speed);
 	}
 }

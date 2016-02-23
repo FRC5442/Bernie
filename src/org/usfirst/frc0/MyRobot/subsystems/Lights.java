@@ -3,17 +3,16 @@ package org.usfirst.frc0.MyRobot.subsystems;
 import org.usfirst.frc0.MyRobot.RobotMap;
 
 import edu.wpi.first.wpilibj.DoubleSolenoid;
+import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
-public class LatchCylinder extends Subsystem{
+public class Lights extends Subsystem{
 
-	private DoubleSolenoid cylinder = RobotMap.wCylinder;
+	DoubleSolenoid Light = RobotMap.light;
 	@Override
 	protected void initDefaultCommand() {
 		// TODO Auto-generated method stub
 		
 	}
-	public void cylinder(DoubleSolenoid.Value position){
-		cylinder.set(position);
-	}
+
 }

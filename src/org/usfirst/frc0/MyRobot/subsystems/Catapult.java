@@ -7,8 +7,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.interfaces.Potentiometer;
 
 public class Catapult extends Subsystem{
-	private CANTalon catapultWinch = RobotMap.catapultWinch;
-	private Potentiometer winchPot = RobotMap.winchPot;		
+	private CANTalon catapultWinch = RobotMap.winchMotor;	
 	@Override
 	protected void initDefaultCommand() {
 		// TODO Auto-generated method stub

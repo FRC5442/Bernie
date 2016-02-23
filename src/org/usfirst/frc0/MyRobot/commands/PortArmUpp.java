@@ -4,7 +4,7 @@ import org.usfirst.frc0.MyRobot.Robot;
 
 import edu.wpi.first.wpilibj.command.Command;
 
-public class ArmUp extends Command{
+public class PortArmUpp extends Command{
 
 	@Override
 	protected void initialize() {

@@ -7,7 +7,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 
 public class Arm extends Subsystem{
 
-	SpeedController armMotor = RobotMap.armMotor;
+	SpeedController armMotor = RobotMap.portBar;
 	@Override
 	protected void initDefaultCommand() {
 		// TODO Auto-generated method stub
