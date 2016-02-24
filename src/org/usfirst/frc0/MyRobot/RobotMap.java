@@ -49,7 +49,8 @@ public class RobotMap {
     public static DoubleSolenoid light;
 	//public static DoubleSolenoid ledlights;
     //public static Solenoid LedLights2;
-
+    // Other Stuff
+    public static DigitalInput limitSwitch;
 
     public static void init() {
     	// Sparks!
@@ -80,10 +81,11 @@ public class RobotMap {
         EncoderRight.setDistancePerPulse(1.0/360);
         
         PressureGauge = new AnalogInput(4);
+        limitSwitch = new DigitalInput(5);
         
-        trigger = new Solenoid(1);
+        trigger = new Solenoid(2);
         
-        wCylinder = new DoubleSolenoid(0, 0, 2);
+        wCylinder = new DoubleSolenoid(0, 0, 1);
         
         light = new DoubleSolenoid(0, 0, 0);
         

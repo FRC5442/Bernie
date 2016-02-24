@@ -1,6 +1,7 @@
 package org.usfirst.frc0.MyRobot.subsystems;
 
 import org.usfirst.frc0.MyRobot.RobotMap;
+import org.usfirst.frc0.MyRobot.commands.Load;
 
 import edu.wpi.first.wpilibj.CANTalon;
 import edu.wpi.first.wpilibj.command.Subsystem;
@@ -11,7 +12,7 @@ public class Catapult extends Subsystem{
 	@Override
 	protected void initDefaultCommand() {
 		// TODO Auto-generated method stub
-		
+		setDefaultCommand(new Load());
 	}
 	public void wrap(double speed) {
 		// TODO Auto-generated method stub

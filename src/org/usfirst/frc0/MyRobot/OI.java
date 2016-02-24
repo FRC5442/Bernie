@@ -68,6 +68,7 @@ public class OI {
         xboxBButton2 = new JoystickButton(xboxController2, 2);
         xboxBButton2.whenPressed(new Load()); 
         xboxXButton2 = new JoystickButton(xboxController2, 3);
+        xboxXButton2.whenPressed(new Shoot());
         xboxYButton2 = new JoystickButton(xboxController2, 4);
        
         // SmartDashboard Buttons
