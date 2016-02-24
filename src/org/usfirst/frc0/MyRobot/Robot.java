@@ -16,10 +16,12 @@ import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.Preferences;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
+import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.usfirst.frc0.MyRobot.commands.*;
+//import org.usfirst.frc0.MyRobot.commands.Parallel;
 import org.usfirst.frc0.MyRobot.subsystems.*;
 import org.usfirst.frc0.MyRobot.subsystems.Pneumatics;
 import org.usfirst.frc0.MyRobot.RobotMap;
@@ -41,7 +43,7 @@ public class Robot extends IterativeRobot {
     public static LatchCylinder latchCylinder;
     public static WinchCylinder winchCylinder;
     public static Arm arm;
-    public static ParallelBars parallelBars;
+    //public static Parallel parallelBar;
     public static Lights lights;
     public static Pneumatics pneumatics;
     
@@ -58,7 +60,7 @@ public class Robot extends IterativeRobot {
         navXBoard = new NavXBoard();
         oi = new OI();
         arm = new Arm();
-        parallelBars = new ParallelBars();
+        //parallelBar = new Parallel();
         lights = new Lights();
         pneumatics = new Pneumatics();
     }

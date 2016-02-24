@@ -31,7 +31,6 @@ public class RobotMap {
 	public static CANTalon winchMotor;
 	public static CANTalon portBar;
 	public static SpeedController intakeRoller;
-	public static SpeedController parallelBar;
 	// Encoders and Daniel's stuff
 	public static RobotDrive driveTrainRobotDrive;
 	public static Encoder EncoderLeft;
@@ -47,6 +46,7 @@ public class RobotMap {
     public static Compressor pneumaticsCompressor;
     // Lights!
     public static DoubleSolenoid light;
+    public static SpeedController intake;
 	//public static DoubleSolenoid ledlights;
     //public static Solenoid LedLights2;
     // Other Stuff
@@ -54,20 +54,20 @@ public class RobotMap {
 
     public static void init() {
     	// Sparks!
-    	dTSparkController1 = new Spark(1);
-    	dTSparkController2 = new Spark(2);
-    	dTSparkController3 = new Spark(3);
-    	dTSparkController4 = new Spark(4);
-    	driveTrainRobotDrive = new RobotDrive(dTSparkController1, dTSparkController3,
-    	dTSparkController2, dTSparkController4);
+    	dTSparkController1 = new Spark(2);
+    	dTSparkController2 = new Spark(3);
+    	dTSparkController3 = new Spark(4);
+    	dTSparkController4 = new Spark(5);
+    	driveTrainRobotDrive = new RobotDrive(dTSparkController1, dTSparkController2,
+    	dTSparkController3, dTSparkController4);
     	
     	
-    	winchMotor = new CANTalon(5);
-    	portBar = new CANTalon(6);
+    	winchMotor = new CANTalon(7);
+    	portBar = new CANTalon(8);
     	
-    	intakeRoller = new Talon(7);
-    	parallelBar= new Talon(8);
+    	intakeRoller = new Talon(1);
     	
+    	intake= new Talon(6);
     	// Encoder Code CP&P - Fred
     	EncoderLeft = new Encoder(2, 3, false, EncodingType.k4X);
         LiveWindow.addSensor("Encoders", "Quadrature Encoder Left", EncoderLeft);
@@ -83,11 +83,11 @@ public class RobotMap {
         PressureGauge = new AnalogInput(4);
         limitSwitch = new DigitalInput(5);
         
-        trigger = new Solenoid(2);
+        trigger = new Solenoid(2, 2);
         
-        wCylinder = new DoubleSolenoid(0, 0, 1);
+        wCylinder = new DoubleSolenoid(1,0, 1);
         
-        light = new DoubleSolenoid(0, 0, 0);
+        light = new DoubleSolenoid(3, 0, 1);
         
         navXBoard = new SerialPort(57600,SerialPort.Port.kMXP);
         byte update_rate_hz = 50;

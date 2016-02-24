@@ -61,7 +61,7 @@ public class OI {
         xboxBButton = new JoystickButton(xboxController, 2);
         xboxXButton = new JoystickButton(xboxController, 3);
         xboxYButton = new JoystickButton(xboxController, 4);
-        xboxYButton2.whenPressed(new PortArmUpp());
+       
         xboxAButton2 = new JoystickButton(xboxController2, 1);
         xboxAButton2.whenPressed(new PortArmDown());
         
@@ -70,7 +70,7 @@ public class OI {
         xboxXButton2 = new JoystickButton(xboxController2, 3);
         xboxXButton2.whenPressed(new Shoot());
         xboxYButton2 = new JoystickButton(xboxController2, 4);
-       
+        xboxYButton2.whenPressed(new PortArmUpp());
         // SmartDashboard Buttons
         //SmartDashboard.putData("Autonomous Command", new AutonomousCommand());
         
