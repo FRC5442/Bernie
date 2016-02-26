@@ -51,6 +51,7 @@ public class RobotMap {
     //public static Solenoid LedLights2;
     // Other Stuff
     public static DigitalInput limitSwitch;
+	public static SpeedController parallelBar;
 
     public static void init() {
     	// Sparks!

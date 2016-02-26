@@ -43,7 +43,7 @@ public class Robot extends IterativeRobot {
     public static LatchCylinder latchCylinder;
     public static WinchCylinder winchCylinder;
     public static Arm arm;
-    //public static Parallel parallelBar;
+    public static Parallel parallelBar;
     public static Lights lights;
     public static Pneumatics pneumatics;
     
@@ -60,7 +60,7 @@ public class Robot extends IterativeRobot {
         navXBoard = new NavXBoard();
         oi = new OI();
         arm = new Arm();
-        //parallelBar = new Parallel();
+        parallelBar = new Parallel();
         lights = new Lights();
         pneumatics = new Pneumatics();
     }

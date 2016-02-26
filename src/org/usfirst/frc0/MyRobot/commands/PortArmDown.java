@@ -15,7 +15,7 @@ public class PortArmDown extends Command{
 	@Override
 	protected void execute() {
 		// TODO Auto-generated method stub
-		//Robot.arm.turn(-1);
+		Robot.arm.turn(-1);
 	}
 
 	@Override
@@ -27,7 +27,7 @@ public class PortArmDown extends Command{
 	@Override
 	protected void end() {
 		// TODO Auto-generated method stub
-		//Robot.arm.turn(0);
+		Robot.arm.turn(0);
 	}
 
 	@Override
