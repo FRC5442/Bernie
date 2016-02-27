@@ -4,18 +4,21 @@ import org.usfirst.frc0.MyRobot.Robot;
 
 import edu.wpi.first.wpilibj.command.Command;
 
-public class PortArmUpp extends Command{
-
+public class Wind extends Command{
+	public Wind(){
+		requires(Robot.catapult);
+	}
+	
 	@Override
 	protected void initialize() {
-		// TODO Auto-generated method stub
-		requires(Robot.arm);
+
+		
 	}
 
 	@Override
 	protected void execute() {
-		// TODO Auto-generated method stub
-		Robot.arm.turn(1.0);
+		Robot.catapult.move(1);
+		
 	}
 
 	@Override
@@ -27,13 +30,13 @@ public class PortArmUpp extends Command{
 	@Override
 	protected void end() {
 		// TODO Auto-generated method stub
-		Robot.arm.turn(0.0);
+		Robot.catapult.move(0);
 	}
 
 	@Override
 	protected void interrupted() {
 		// TODO Auto-generated method stub
-		Robot.arm.turn(0.0);
+		Robot.catapult.move(0);
 	}
-	
+
 }

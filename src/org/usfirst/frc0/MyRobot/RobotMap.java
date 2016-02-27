@@ -42,7 +42,7 @@ public class RobotMap {
 	public static AnalogInput PressureGauge;
 	public static Compressor compressor;
 	public static DoubleSolenoid wCylinder;
-    public static Solenoid trigger;
+    public static DoubleSolenoid trigger;
     public static Compressor pneumaticsCompressor;
     // Lights!
     public static DoubleSolenoid light;
@@ -51,7 +51,7 @@ public class RobotMap {
     //public static Solenoid LedLights2;
     // Other Stuff
     public static DigitalInput limitSwitch;
-	public static SpeedController parallelBar;
+	public static CANTalon parallelBar;
 
     public static void init() {
     	// Sparks!
@@ -66,6 +66,7 @@ public class RobotMap {
     	winchMotor = new CANTalon(7);
     	portBar = new CANTalon(8);
     	
+    	parallelBar = new CANTalon(9);
     	intakeRoller = new Talon(1);
     	
     	intake= new Talon(6);
@@ -84,9 +85,9 @@ public class RobotMap {
         PressureGauge = new AnalogInput(4);
         limitSwitch = new DigitalInput(5);
         
-        trigger = new Solenoid(2, 2);
+        trigger = new DoubleSolenoid(2, 2);
         
-        wCylinder = new DoubleSolenoid(1,0, 1);
+        wCylinder = new DoubleSolenoid(1, 0, 1);
         
         light = new DoubleSolenoid(3, 0, 1);
         
