@@ -8,7 +8,9 @@ import org.usfirst.frc0.MyRobot.RobotMap;
 import edu.wpi.first.wpilibj.command.Command;
 
 public class Parallel extends Command{
-
+	//public Parallel(){
+		//requires(Robot.parallelBar);
+	//}
 	@Override
 	protected void initialize() {
 		// TODO Auto-generated method stub
@@ -18,7 +20,8 @@ public class Parallel extends Command{
 	@Override
 	protected void execute() {
 		// TODO Auto-generated method stub
-		 RobotMap.parallelBar.set(1);
+		Robot.parallelBar.move(OI.xboxController2.getRawAxis(5));
+		 //Robot.parallelBar.move(1);
 	}
 	@Override
 	protected boolean isFinished() {
@@ -29,12 +32,12 @@ public class Parallel extends Command{
 	@Override
 	protected void end() {
 		// TODO Auto-generated method stub
-		
+		Robot.parallelBar.move(0);
 	}
 	@Override
 	protected void interrupted() {
 		// TODO Auto-generated method stub
-		
+		Robot.parallelBar.move(0);
 	}
 }
 

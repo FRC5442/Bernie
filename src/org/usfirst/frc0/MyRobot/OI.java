@@ -52,28 +52,38 @@ public class OI {
     public JoystickButton xboxBButton2;
     public JoystickButton xboxXButton2;
     public JoystickButton xboxYButton2;
+    public JoystickButton xboxLeftTrigger2;
+    public JoystickButton xboxRightTrigger2;
 
     public OI() {
         xboxController = new Joystick(0);
         xboxController2 = new Joystick(1);
         
         xboxAButton = new JoystickButton(xboxController, 1);
+        //xboxAButton.whileHeld(new Parallel());
         xboxBButton = new JoystickButton(xboxController, 2);
+        xboxBButton.whileHeld(new Intaking());
         xboxXButton = new JoystickButton(xboxController, 3);
         xboxYButton = new JoystickButton(xboxController, 4);
        
         xboxAButton2 = new JoystickButton(xboxController2, 1);
-        xboxAButton2.whileHeld(new PortArmDown());
+        //xboxAButton2.whileHeld(new PortArmDown());
+        xboxAButton2.whileHeld(new Shoot());
         
         xboxBButton2 = new JoystickButton(xboxController2, 2);
         xboxBButton2.whileHeld(new Wind());
         xboxXButton2 = new JoystickButton(xboxController2, 3);
-        xboxXButton2.whenPressed(new Shoot());
+        xboxXButton2.whileHeld(new ClutchOut());
         xboxYButton2 = new JoystickButton(xboxController2, 4);
-        xboxYButton2.whileHeld(new PortArmUpp());
+        xboxYButton2.whileHeld(new Clutch());
+        
         // SmartDashboard Buttons
         //SmartDashboard.putData("Autonomous Command", new AutonomousCommand());
         
+       // xboxLeftTrigger2 = new JoystickButton (xboxController2, 1);
+       // xboxLeftTrigger2.whenActive(new PortArmDown());
+        //xboxRightTrigger2 = new JoystickButton (xboxController2, 2);
+        //xboxRightTrigger2.whenActive(new PortArmUpp());
     }
     
     public Joystick getXboxController() {

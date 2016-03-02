@@ -43,8 +43,8 @@ public class Robot extends IterativeRobot {
     public static LatchCylinder latchCylinder;
     public static WinchCylinder winchCylinder;
     public static Arm arm;
-    public static Parallel parallelBar;
-    public static Lights lights;
+    public static ParallelBar parallelBar;
+    //public static Lights lights;
     public static Pneumatics pneumatics;
     
     public void robotInit() {
@@ -52,21 +52,23 @@ public class Robot extends IterativeRobot {
     	intake = new Intake();
         driveTrain = new DriveTrain();
         sensors = new Sensors();
-        catapult = new Catapult();
+        catapult = new Catapult();    
+        
         latchCylinder = new LatchCylinder();
+        winchCylinder = new WinchCylinder();
+        
         prefs = Preferences.getInstance();
         Robot.sensors.encoderLeft.reset();
         Robot.sensors.encoderRight.reset();
         navXBoard = new NavXBoard();
         oi = new OI();
         arm = new Arm();
-        parallelBar = new Parallel();
-        lights = new Lights();
+        parallelBar = new ParallelBar();
+        //lights = new Lights();
         pneumatics = new Pneumatics();
     }
 
     public void disabledInit(){
-
     }
 
     public void disabledPeriodic() {
@@ -112,7 +114,7 @@ public class Robot extends IterativeRobot {
         double Volts = RobotMap.PressureGauge.getVoltage();
         double Pressure = 250*(Volts/5)-25;
         SmartDashboard.putNumber("Pneumatic Pressure", Pressure);
-        
+   
     }
 
     public void teleopInit() {
@@ -131,6 +133,7 @@ public class Robot extends IterativeRobot {
         double Volts = RobotMap.PressureGauge.getVoltage();
         double Pressure = 250*(Volts/5)-25;
         SmartDashboard.putNumber("Pneumatic Pressure", Pressure);
+        
     }
 
     /**
