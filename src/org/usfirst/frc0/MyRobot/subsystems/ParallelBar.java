@@ -19,6 +19,7 @@ public class ParallelBar extends Subsystem{
 		//setDefaultCommand(new Parallel());
 	}
 	public void move(double speed){
+		//parallelBar.set(.5 *(speed));
 		parallelBar.set(speed);
 	}
 }

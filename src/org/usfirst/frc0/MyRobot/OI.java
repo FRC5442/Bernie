@@ -54,6 +54,8 @@ public class OI {
     public JoystickButton xboxYButton2;
     public JoystickButton xboxLeftTrigger2;
     public JoystickButton xboxRightTrigger2;
+    public JoystickButton xboxLeftBumper2;
+    public JoystickButton xboxRightBumper2;
 
     public OI() {
         xboxController = new Joystick(0);
@@ -61,14 +63,15 @@ public class OI {
         
         xboxAButton = new JoystickButton(xboxController, 1);
         //xboxAButton.whileHeld(new Parallel());
+        xboxAButton.whileHeld(new Shoot());
         xboxBButton = new JoystickButton(xboxController, 2);
-        xboxBButton.whileHeld(new Intaking());
+        //xboxBButton.whileHeld(new Intaking());
         xboxXButton = new JoystickButton(xboxController, 3);
         xboxYButton = new JoystickButton(xboxController, 4);
        
         xboxAButton2 = new JoystickButton(xboxController2, 1);
         //xboxAButton2.whileHeld(new PortArmDown());
-        xboxAButton2.whileHeld(new Shoot());
+        
         
         xboxBButton2 = new JoystickButton(xboxController2, 2);
         xboxBButton2.whileHeld(new Wind());
@@ -76,7 +79,10 @@ public class OI {
         xboxXButton2.whileHeld(new ClutchOut());
         xboxYButton2 = new JoystickButton(xboxController2, 4);
         xboxYButton2.whileHeld(new Clutch());
-        
+        xboxLeftBumper2 = new JoystickButton(xboxController2, 6);
+        xboxLeftBumper2.whileHeld(new Parallel());
+        xboxRightBumper2 = new JoystickButton(xboxController2, 5);
+        xboxRightBumper2.whileHeld(new Intaking());
         // SmartDashboard Buttons
         //SmartDashboard.putData("Autonomous Command", new AutonomousCommand());
         

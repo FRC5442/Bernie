@@ -17,7 +17,7 @@ public class Wind extends Command{
 
 	@Override
 	protected void execute() {
-		Robot.catapult.move(1);
+		Robot.catapult.move(.85);
 		
 	}
 

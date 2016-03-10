@@ -37,6 +37,7 @@ public class RobotMap {
 	// Encoders
 	public static Encoder EncoderLeft;
 	public static Encoder EncoderRight;
+	public static Ultrasonic ultrasonic;
 	// NavX accelerometer board
 	public static AHRS imu;
 	public static SerialPort navXBoard;
@@ -88,11 +89,13 @@ public class RobotMap {
         EncoderLeft.setDistancePerPulse(1.0/360);
         //EncoderLeft.setPIDSourceParameter(PIDSourceParameter.kDistance);
         
-        EncoderRight = new Encoder(0, 1, false, EncodingType.k4X);
+        EncoderRight = new Encoder(4, 5, false, EncodingType.k4X);
         LiveWindow.addSensor("Encoders", "Quadrature EncoderRight", EncoderRight);
         EncoderRight.setSamplesToAverage(5);
         EncoderRight.setDistancePerPulse(1.0/360);
         
+        //Ultrasonic ultra = new Ultrasonic(6,7);
+        //ultra.setAutomaticMode(true);
         PressureGauge = new AnalogInput(4);
         //limitSwitch = new DigitalInput(5);
         

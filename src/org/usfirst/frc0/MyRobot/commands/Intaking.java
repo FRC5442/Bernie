@@ -16,8 +16,8 @@ public class Intaking extends Command{
 
 	protected void execute() {
 		// TODO Auto-generated method stub
-		//Robot.intake.move(OI.xboxController2.getRawAxis(5));
-		Robot.intake.move(1);
+		Robot.intake.move(OI.xboxController2.getRawAxis(1));
+		//Robot.intake.move(1);
 	}
 
 	@Override

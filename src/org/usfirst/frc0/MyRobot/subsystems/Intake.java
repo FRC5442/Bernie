@@ -16,7 +16,7 @@ public class Intake extends Subsystem{
 	}   
 	public void move (double speed) {
 		// TODO Auto-generated method stub
-		intake.set(speed);
+		intake.set(1*(speed));
 		//parallelBar.set(speed);
 	}
 }
