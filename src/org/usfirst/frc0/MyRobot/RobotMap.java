@@ -31,7 +31,7 @@ public class RobotMap {
 	public static RobotDrive driveTrainRobotDrive;
 	////Intake and Winch Motors
 	public static CANTalon winchMotor;
-	public static CANTalon portBar;
+	public static CANTalon armMotor;
 	public static Talon intakeRoller;
     public static Talon intake;
 	// Encoders
@@ -72,9 +72,9 @@ public class RobotMap {
     	driveTrainRobotDrive = new RobotDrive(dTSparkController1, dTSparkController2,
     	dTSparkController3, dTSparkController4);
     	
-    	
+    	//hi
     	winchMotor = new CANTalon(7);
-    	portBar = new CANTalon(8);
+    	armMotor = new CANTalon(8);
     	//remember CANTalons are named by the RIO Interface ID number
     	//parallelBar = new CANTalon(9);
     ////Change for Competition Robot start

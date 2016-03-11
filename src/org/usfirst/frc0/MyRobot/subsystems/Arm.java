@@ -7,13 +7,12 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 
 public class Arm extends Subsystem{
 
-	CANTalon armMotor = RobotMap.portBar;
+	CANTalon armMotor = RobotMap.armMotor;
 	@Override
 	protected void initDefaultCommand() {
-		// TODO Auto-generated method stub
 		
 	}
 	public void turn (double speed){
-		armMotor.set(speed);
+		armMotor.set(.7*(speed));
 	}
 }

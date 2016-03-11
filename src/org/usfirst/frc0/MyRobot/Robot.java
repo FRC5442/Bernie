@@ -94,6 +94,7 @@ public class Robot extends IterativeRobot {
         autonomousModes.addObject("Rampart Autonomous", new RampartAuto());
         autonomousModes.addObject("Portcullis Autonomous", new PortcullisAuto());
         autonomousModes.addObject("Cheval Autonomous", new ChevalAuto());
+        autonomousModes.addObject("Spy Box Autonomous", new SpyBoxShoot());
         SmartDashboard.putData("Autonomous Mode Chooser", autonomousModes);
     }
 
@@ -114,10 +115,10 @@ public class Robot extends IterativeRobot {
     	Scheduler.getInstance().run();
     	SmartDashboard.putNumber("Encoder Left", Robot.sensors.encoderLeft.getDistance());
         SmartDashboard.putNumber("Encoder Right", Robot.sensors.encoderRight.getDistance());
-        double Volts = RobotMap.PressureGauge.getVoltage();
-        double Pressure = (250*(Volts/5)-25);
+        double VoltsOut = RobotMap.PressureGauge.getVoltage();
+        double Pressure = (250*(VoltsOut/5)-25);
         SmartDashboard.putNumber("Pneumatic Pressure", Pressure);
-      
+        SmartDashboard.putNumber("Pneumatic Gauge Output Voltage", VoltsOut);
         //SmartDashboard.putNumber("Ultrasonic Range: Ready to shoot when under 5 inches", Robot.sensors.ultrasonic.getRangeInches());
    
     }
@@ -136,8 +137,9 @@ public class Robot extends IterativeRobot {
         SmartDashboard.putNumber("Encoder Left", Robot.sensors.encoderLeft.getDistance());
         SmartDashboard.putNumber("Encoder Right", Robot.sensors.encoderRight.getDistance());
         double VoltsOut = RobotMap.PressureGauge.getVoltage();
-        double Pressure = 250*(VoltsOut/5) -25;
+        double Pressure = (250*(VoltsOut/5)-25);
         SmartDashboard.putNumber("Pneumatic Pressure", Pressure);
+        SmartDashboard.putNumber("Pneumatic Gauge Output Voltage", VoltsOut);
         //SmartDashboard.putNumber("Ultrasonic Range: Ready to shoot when under 5 inches", Robot.sensors.ultrasonic.getRangeInches());
         
     }

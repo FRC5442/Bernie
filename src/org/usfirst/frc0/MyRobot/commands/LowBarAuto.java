@@ -7,6 +7,7 @@ import org.usfirst.frc0.MyRobot.RobotMap;
 
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 public class LowBarAuto extends Command {
 
@@ -21,10 +22,10 @@ public class LowBarAuto extends Command {
 
 	@Override
 	protected void execute() {
-		while(-1 * (RobotMap.EncoderLeft.getDistance()) <= 5.3){
-			org.usfirst.frc0.MyRobot.Robot.driveTrain.robotDrive(.65, .65);
+		while(RobotMap.EncoderRight.getDistance() <= 12){
+			org.usfirst.frc0.MyRobot.Robot.driveTrain.robotDrive(-.65, -.65);
+			SmartDashboard.putNumber("Auto Encoder Value", RobotMap.EncoderRight.getDistance());
 		}
-		Timer.delay(1);
 		Robot.driveTrain.robotDrive(0, 0);
 		
 	}

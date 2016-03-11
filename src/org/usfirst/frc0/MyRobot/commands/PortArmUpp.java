@@ -1,5 +1,6 @@
 package org.usfirst.frc0.MyRobot.commands;
 
+import org.usfirst.frc0.MyRobot.OI;
 import org.usfirst.frc0.MyRobot.Robot;
 
 import edu.wpi.first.wpilibj.command.Command;
@@ -16,7 +17,7 @@ public class PortArmUpp extends Command{
 	@Override
 	protected void execute() {
 		// TODO Auto-generated method stub
-		Robot.arm.turn(1.0);
+		Robot.arm.turn(-1*(OI.xboxController.getRawAxis(3)));
 	}
 
 	@Override

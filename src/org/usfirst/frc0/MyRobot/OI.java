@@ -48,6 +48,7 @@ public class OI {
     public JoystickButton xboxBButton;
     public JoystickButton xboxXButton;
     public JoystickButton xboxYButton;
+    public JoystickButton xboxRightBumper;
     public JoystickButton xboxAButton2;
     public JoystickButton xboxBButton2;
     public JoystickButton xboxXButton2;
@@ -71,6 +72,9 @@ public class OI {
        
         xboxAButton2 = new JoystickButton(xboxController2, 1);
         //xboxAButton2.whileHeld(new PortArmDown());
+        xboxRightBumper = new JoystickButton(xboxController, 5);
+        xboxRightBumper.whileHeld(new PortArmUpp());
+        xboxRightBumper.whileHeld(new PortArmDown());
         
         
         xboxBButton2 = new JoystickButton(xboxController2, 2);
@@ -85,11 +89,6 @@ public class OI {
         xboxRightBumper2.whileHeld(new Intaking());
         // SmartDashboard Buttons
         //SmartDashboard.putData("Autonomous Command", new AutonomousCommand());
-        
-       // xboxLeftTrigger2 = new JoystickButton (xboxController2, 1);
-       // xboxLeftTrigger2.whenActive(new PortArmDown());
-        //xboxRightTrigger2 = new JoystickButton (xboxController2, 2);
-        //xboxRightTrigger2.whenActive(new PortArmUpp());
     }
     
     public Joystick getXboxController() {
