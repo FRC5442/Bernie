@@ -97,7 +97,7 @@ public class RobotMap {
         //Ultrasonic ultra = new Ultrasonic(6,7);
         //ultra.setAutomaticMode(true);
         PressureGauge = new AnalogInput(4);
-        //limitSwitch = new DigitalInput(5);
+        limitSwitch = new DigitalInput(1);
         
         // Change for Practice to Competition Robot 
         //wCylinder = new Solenoid(1);

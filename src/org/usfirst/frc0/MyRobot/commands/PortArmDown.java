@@ -11,7 +11,7 @@ public class PortArmDown extends Command{
 	@Override
 	protected void initialize() {
 		// TODO Auto-generated method stub
-		requires(Robot.arm);
+		
 	}
 
 	@Override

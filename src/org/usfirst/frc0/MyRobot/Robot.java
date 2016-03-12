@@ -11,6 +11,7 @@
 
 package org.usfirst.frc0.MyRobot;
 
+import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.Preferences;
@@ -23,11 +24,14 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.usfirst.frc0.MyRobot.commands.*;
 //import org.usfirst.frc0.MyRobot.commands.Parallel;
 import org.usfirst.frc0.MyRobot.subsystems.*;
-import org.usfirst.frc0.MyRobot.subsystems.Pneumatics;
 import org.usfirst.frc0.MyRobot.RobotMap;
 import edu.wpi.first.wpilibj.Ultrasonic;
 
 import com.kauailabs.nav6.frc.IMU;
+import com.ni.vision.NIVision;
+import com.ni.vision.NIVision.DrawMode;
+import com.ni.vision.NIVision.Image;
+import com.ni.vision.NIVision.ShapeMode;
 
 @SuppressWarnings("unused")
 public class Robot extends IterativeRobot {
@@ -47,6 +51,11 @@ public class Robot extends IterativeRobot {
     public static ParallelBar parallelBar;
     //public static Lights lights;
     public static Pneumatics pneumatics;
+    public static Cameras cameras;
+    //public static CameraServer server;
+    int session;
+    Image frame;
+    NIVision.Rect rect;
     
     public void robotInit() {
     RobotMap.init();
@@ -55,7 +64,7 @@ public class Robot extends IterativeRobot {
         driveTrain = new DriveTrain();
         sensors = new Sensors();
         catapult = new Catapult();    
-        
+        cameras = new Cameras();
         latchCylinder = new LatchCylinder();
         winchCylinder = new WinchCylinder();
         
@@ -68,6 +77,25 @@ public class Robot extends IterativeRobot {
         parallelBar = new ParallelBar();
         //lights = new Lights();
         pneumatics = new Pneumatics();
+ 
+        
+
+        cameras.init();
+        //CameraServer server2;
+        
+        //server = CameraServer.getInstance();
+        /*if (CameraServer.getInstance() == null) {
+        	
+        } else {
+        	server = CameraServer.getInstance();
+        	server.setQuality(25);
+            server.startAutomaticCapture("cam0");
+        	/*server2 = CameraServer.getInstance();
+        	server2.setQuality(25);
+            server2.startAutomaticCapture("cam2");
+            }
+            */
+        
         
     }
 
@@ -126,6 +154,9 @@ public class Robot extends IterativeRobot {
     public void teleopInit() {
     	
     	if (autonomousCommand != null) autonomousCommand.cancel();
+
+
+
         
     }
 
@@ -141,7 +172,8 @@ public class Robot extends IterativeRobot {
         SmartDashboard.putNumber("Pneumatic Pressure", Pressure);
         SmartDashboard.putNumber("Pneumatic Gauge Output Voltage", VoltsOut);
         //SmartDashboard.putNumber("Ultrasonic Range: Ready to shoot when under 5 inches", Robot.sensors.ultrasonic.getRangeInches());
-        
+        //server.startAutomaticCapture("cam2");
+        cameras.updateCam();
     }
 
     /**

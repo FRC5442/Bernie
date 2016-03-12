@@ -49,6 +49,7 @@ public class OI {
     public JoystickButton xboxXButton;
     public JoystickButton xboxYButton;
     public JoystickButton xboxRightBumper;
+    public JoystickButton xboxLeftBumper;
     public JoystickButton xboxAButton2;
     public JoystickButton xboxBButton2;
     public JoystickButton xboxXButton2;
@@ -57,6 +58,7 @@ public class OI {
     public JoystickButton xboxRightTrigger2;
     public JoystickButton xboxLeftBumper2;
     public JoystickButton xboxRightBumper2;
+    public JoystickButton xboxBackButton2;
 
     public OI() {
         xboxController = new Joystick(0);
@@ -74,6 +76,7 @@ public class OI {
         //xboxAButton2.whileHeld(new PortArmDown());
         xboxRightBumper = new JoystickButton(xboxController, 5);
         xboxRightBumper.whileHeld(new PortArmUpp());
+        xboxLeftBumper = new JoystickButton(xboxController, 6);
         xboxRightBumper.whileHeld(new PortArmDown());
         
         
@@ -87,6 +90,8 @@ public class OI {
         xboxLeftBumper2.whileHeld(new Parallel());
         xboxRightBumper2 = new JoystickButton(xboxController2, 5);
         xboxRightBumper2.whileHeld(new Intaking());
+        xboxBackButton2 = new JoystickButton(xboxController2, 7);
+        xboxBackButton2.whileHeld(new SwitchCamera());
         // SmartDashboard Buttons
         //SmartDashboard.putData("Autonomous Command", new AutonomousCommand());
     }

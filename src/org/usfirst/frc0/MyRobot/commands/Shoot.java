@@ -19,12 +19,6 @@ public class Shoot extends Command{
 	@Override
 	protected void initialize() {
 		// TODO Auto-generated method stub
-	
-	}
-
-	@Override
-	protected void execute() {
-		
 		//// CHANGE FOR PRACTICE TO COMPETITION
 		//latchCylinder.cylinder(true);
 		//Timer.delay(2);
@@ -34,6 +28,12 @@ public class Shoot extends Command{
 		Timer.delay(1);
 		latchCylinder.cylinder(DoubleSolenoid.Value.kForward);
 		//// CHANGE FOR PRACTICE TO COMPETITION END
+	}
+
+	@Override
+	protected void execute() {
+		
+
 	}
 
 	@Override
