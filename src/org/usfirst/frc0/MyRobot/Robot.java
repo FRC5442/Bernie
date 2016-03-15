@@ -174,6 +174,7 @@ public class Robot extends IterativeRobot {
         //SmartDashboard.putNumber("Ultrasonic Range: Ready to shoot when under 5 inches", Robot.sensors.ultrasonic.getRangeInches());
         //server.startAutomaticCapture("cam2");
         cameras.updateCam();
+        //SmartDashboard.putNumber("Arm Encoder", Robot.sensors.armEncoder.getDistance());
     }
 
     /**

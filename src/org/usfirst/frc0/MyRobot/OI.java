@@ -74,10 +74,10 @@ public class OI {
        
         xboxAButton2 = new JoystickButton(xboxController2, 1);
         //xboxAButton2.whileHeld(new PortArmDown());
-        xboxRightBumper = new JoystickButton(xboxController, 5);
-        xboxRightBumper.whileHeld(new PortArmUpp());
-        xboxLeftBumper = new JoystickButton(xboxController, 6);
+        xboxRightBumper = new JoystickButton(xboxController, 6);
         xboxRightBumper.whileHeld(new PortArmDown());
+        xboxLeftBumper = new JoystickButton(xboxController, 5);
+        xboxLeftBumper.whileHeld(new PortArmUpp());
         
         
         xboxBButton2 = new JoystickButton(xboxController2, 2);

@@ -37,11 +37,12 @@ public class RobotMap {
 	// Encoders
 	public static Encoder EncoderLeft;
 	public static Encoder EncoderRight;
+	public static Encoder ArmEncoder;
 	public static Ultrasonic ultrasonic;
 	// NavX accelerometer board
 	public static AHRS imu;
 	public static SerialPort navXBoard;
-	// Pneumatics =[
+	// Pneumatics
 	public static AnalogInput PressureGauge;
 	public static Compressor compressor;
   // CHANGE FOR PRACTICE TO COMPETITION
@@ -72,7 +73,7 @@ public class RobotMap {
     	driveTrainRobotDrive = new RobotDrive(dTSparkController1, dTSparkController2,
     	dTSparkController3, dTSparkController4);
     	
-    	//hi
+    	//hi no
     	winchMotor = new CANTalon(7);
     	armMotor = new CANTalon(8);
     	//remember CANTalons are named by the RIO Interface ID number
@@ -94,6 +95,10 @@ public class RobotMap {
         EncoderRight.setSamplesToAverage(5);
         EncoderRight.setDistancePerPulse(1.0/360);
         
+    	/*ArmEncoder = new Encoder(6, 7, false, EncodingType.k4X);
+        LiveWindow.addSensor("Encoders", "Quadrature Encoder Left", EncoderLeft);
+        ArmEncoder.setSamplesToAverage(5);
+        ArmEncoder.setDistancePerPulse(1.0/360);*/
         //Ultrasonic ultra = new Ultrasonic(6,7);
         //ultra.setAutomaticMode(true);
         PressureGauge = new AnalogInput(4);

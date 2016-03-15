@@ -1,3 +1,4 @@
+
 package org.usfirst.frc0.MyRobot.subsystems;
 
 import com.ni.vision.NIVision;
@@ -11,7 +12,7 @@ public class Cameras
 	private int curCam;
 	private Image frame;
 	private CameraServer server;
-	private String camLeftName = "cam2";
+	private String camLeftName = "cam1";
 	private String camShooterName = "cam0";
 	private int camQuality = 25;
 	
@@ -46,18 +47,16 @@ public class Cameras
 		updateCam();
 	}
 	
-	/**
-	 * Stop aka close camera stream
-	 */
+	 //Stop aka close camera stream
 	public void end()
 	{
 		NIVision.IMAQdxStopAcquisition(curCam);
 	}
 	
-	/**
-	 * Change the camera to get imgs from to a different one
-	 * @param newId for camera
-	 */
+	
+	 //Change the camera to get imgs from to a different one
+	 //@param newId for camera
+	 
 	public void changeCam(int newId)
     {
 		NIVision.IMAQdxStopAcquisition(curCam);
@@ -66,9 +65,10 @@ public class Cameras
     	curCam = newId;
     }
     
-	/**
-	 * Get the img from current camera and give it to the server
-	 */
+	
+	 
+	 //Get the img from current camera and give it to the server
+	
     public void updateCam()
     {
     	NIVision.IMAQdxGrab(curCam, frame, 1);
