@@ -37,8 +37,8 @@ public class  TankDrive extends Command {
     	 *  Right Y = axis 5
     	 */
     	
-		Robot.driveTrain.robotDrive(OI.xboxController.getRawAxis(5), OI.xboxController.getRawAxis(1));
-		//Robot.driveTrain.robotDrive((-1* OI.xboxController.getRawAxis(1)),(-1* OI.xboxController.getRawAxis(5))); 
+		//Robot.driveTrain.robotDrive(OI.xboxController.getRawAxis(5), OI.xboxController.getRawAxis(1));
+		Robot.driveTrain.robotDrive((-1* OI.xboxController.getRawAxis(1)),(-1* OI.xboxController.getRawAxis(5))); 
     }
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {

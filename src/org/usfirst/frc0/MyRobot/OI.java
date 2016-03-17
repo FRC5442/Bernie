@@ -83,9 +83,9 @@ public class OI {
         xboxBButton2 = new JoystickButton(xboxController2, 2);
         xboxBButton2.whileHeld(new Wind());
         xboxXButton2 = new JoystickButton(xboxController2, 3);
-        xboxXButton2.whileHeld(new ClutchOut());
+        xboxXButton2.whileHeld(new Clutch());
         xboxYButton2 = new JoystickButton(xboxController2, 4);
-        xboxYButton2.whileHeld(new Clutch());
+        xboxYButton2.whileHeld(new ClutchOut());
         xboxLeftBumper2 = new JoystickButton(xboxController2, 6);
         xboxLeftBumper2.whileHeld(new Parallel());
         xboxRightBumper2 = new JoystickButton(xboxController2, 5);

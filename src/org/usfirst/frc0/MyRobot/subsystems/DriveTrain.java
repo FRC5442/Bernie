@@ -43,7 +43,7 @@ public class DriveTrain extends Subsystem {
 
 
 	public void robotDrive(double sparkLeft, double sparkRight) {
-		robotDrive.tankDrive(sparkLeft * 1, sparkRight * 1);
+		robotDrive.tankDrive(sparkLeft, sparkRight);
 		// TODO Auto-generated method stub
 		
 	}

@@ -18,14 +18,15 @@ public class Shoot extends Command{
 	}
 	@Override
 	protected void initialize() {
-		// TODO Auto-generated method stub
 		//// CHANGE FOR PRACTICE TO COMPETITION DONE DONE DONE DOOOONNNEE
 		//////////////////////// CHANGE DURING COMP: NEED TO FIND RIGHT ENCODERS
-		if (Robot.sensors.armEncoder.getDistance() < 12){
-			latchCylinder.cylinder(true);
-		Timer.delay(2);
+		//if (Robot.sensors.armEncoder.getDistance() < 12){
+		//	latchCylinder.cylinder(true);
+		//Timer.delay(2);
+		//latchCylinder.cylinder(false);
+		latchCylinder.cylinder(true);
+		Timer.delay(.5);
 		latchCylinder.cylinder(false);
-		}
 		
 		
 		//latchCylinder.cylinder(DoubleSolenoid.Value.kReverse);

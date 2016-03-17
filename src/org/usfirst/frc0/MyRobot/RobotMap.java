@@ -37,8 +37,8 @@ public class RobotMap {
 	// Encoders
 	public static Encoder EncoderLeft;
 	public static Encoder EncoderRight;
-	public static Encoder ArmEncoder;
-	public static Ultrasonic ultrasonic;
+	public static Encoder ParallelEncoder;
+	//public static Ultrasonic ultrasonic;
 	// NavX accelerometer board
 	public static AHRS imu;
 	public static SerialPort navXBoard;
@@ -80,7 +80,7 @@ public class RobotMap {
     	intakeRoller = new Talon(1);
     	//intakeRoller = new Talon(6);
     ////Change for Competition Robot end
-    	intake = new Talon(5);
+    	intake = new Talon(6);
     	// Encoder Code CP&P - Fred
     	EncoderLeft = new Encoder(2, 3, false, EncodingType.k4X);
         LiveWindow.addSensor("Encoders", "Quadrature Encoder Left", EncoderLeft);
@@ -93,15 +93,15 @@ public class RobotMap {
         EncoderRight.setSamplesToAverage(5);
         EncoderRight.setDistancePerPulse(1.0/360);
         
-    	/*ArmEncoder = new Encoder(6, 7, false, EncodingType.k4X);
-        LiveWindow.addSensor("Encoders", "Quadrature Encoder Left", EncoderLeft);
-        ArmEncoder.setSamplesToAverage(5);
-        ArmEncoder.setDistancePerPulse(1.0/360);*/
+    	ParallelEncoder = new Encoder(0, 1, false, EncodingType.k4X);
+        LiveWindow.addSensor("Encoders", "Quadrature Encoder Arm", ParallelEncoder);
+        ParallelEncoder.setSamplesToAverage(5);
+        ParallelEncoder.setDistancePerPulse(1.0/360);
         
         //Ultrasonic ultra = new Ultrasonic(6,7);
         //ultra.setAutomaticMode(true);
         PressureGauge = new AnalogInput(4);
-        limitSwitch = new DigitalInput(1);
+        limitSwitch = new DigitalInput(9);
         
         // Change for Practice to Competition Robot DONE DONE DONE DOOOONNNEE
         wCylinder = new Solenoid(1);

@@ -71,6 +71,7 @@ public class Robot extends IterativeRobot {
         prefs = Preferences.getInstance();
         Robot.sensors.encoderLeft.reset();
         Robot.sensors.encoderRight.reset();
+        Robot.sensors.parallelEncoder.reset();
         navXBoard = new NavXBoard();
         oi = new OI();
         arm = new Arm();
@@ -115,7 +116,7 @@ public class Robot extends IterativeRobot {
          * Portcullis
          */
         autonomousModes = new SendableChooser();
-        autonomousModes.addDefault("Low Bar Autonomous",  new LowBarAuto());
+        autonomousModes.addObject("Low Bar Autonomous",  new LowBarAuto());
         autonomousModes.addObject("Rough Terrain Autonomous", new RoughTerrainAuto());
         autonomousModes.addObject("Rock Wall Autonomous", new RockWallAuto());
         autonomousModes.addObject("Moat Autonomous", new MoatAuto());
@@ -123,6 +124,8 @@ public class Robot extends IterativeRobot {
         autonomousModes.addObject("Portcullis Autonomous", new PortcullisAuto());
         autonomousModes.addObject("Cheval Autonomous", new ChevalAuto());
         autonomousModes.addObject("Spy Box Autonomous", new SpyBoxShoot());
+        autonomousModes.addObject("Rampart and Shoot Autonomous", new RampartsShootAuto());
+        autonomousModes.addDefault("No autonomous", new NoAuto());
         SmartDashboard.putData("Autonomous Mode Chooser", autonomousModes);
     }
 
@@ -143,6 +146,7 @@ public class Robot extends IterativeRobot {
     	Scheduler.getInstance().run();
     	SmartDashboard.putNumber("Encoder Left", Robot.sensors.encoderLeft.getDistance());
         SmartDashboard.putNumber("Encoder Right", Robot.sensors.encoderRight.getDistance());
+        SmartDashboard.putNumber("Parallel Bar Encoder", Robot.sensors.parallelEncoder.getDistance());
         double VoltsOut = RobotMap.PressureGauge.getVoltage();
         double Pressure = (250*(VoltsOut/5)-25);
         SmartDashboard.putNumber("Pneumatic Pressure", Pressure);
@@ -165,8 +169,24 @@ public class Robot extends IterativeRobot {
      */
     public void teleopPeriodic() {
         Scheduler.getInstance().run();
+        SmartDashboard.putNumber("Left Controller", -1*(OI.xboxController.getRawAxis(1)));
+        SmartDashboard.putNumber("Right Controller", -1*(OI.xboxController.getRawAxis(5)));
+        if(OI.xboxController.getRawAxis(2) > 0.1)
+        {
+        	arm.turn(-1*OI.xboxController.getRawAxis(2));
+        }
+        else if(OI.xboxController.getRawAxis(3) > 0.1)
+        {
+        	arm.turn(OI.xboxController.getRawAxis(3));
+        }
+        else{
+        	
+        	arm.turn(0.0);
+        }
+        
         SmartDashboard.putNumber("Encoder Left", Robot.sensors.encoderLeft.getDistance());
         SmartDashboard.putNumber("Encoder Right", Robot.sensors.encoderRight.getDistance());
+        SmartDashboard.putNumber("Parallel Bar Encoder", Robot.sensors.parallelEncoder.getDistance());
         double VoltsOut = RobotMap.PressureGauge.getVoltage();
         double Pressure = (250*(VoltsOut/5)-25);
         SmartDashboard.putNumber("Pneumatic Pressure", Pressure);

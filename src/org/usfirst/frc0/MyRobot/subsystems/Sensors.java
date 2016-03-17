@@ -10,7 +10,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 public class Sensors extends Subsystem{
 	public Encoder encoderLeft = RobotMap.EncoderLeft;
 	public Encoder encoderRight = RobotMap.EncoderRight;
-	public Encoder armEncoder = RobotMap.ArmEncoder;
+	public Encoder parallelEncoder = RobotMap.ParallelEncoder;
 	public DigitalInput limitSwitch = RobotMap.limitSwitch;
 	//public Ultrasonic ultrasonic = RobotMap.ultrasonic;
 

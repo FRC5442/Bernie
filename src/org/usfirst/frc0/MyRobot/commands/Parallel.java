@@ -6,6 +6,7 @@ import org.usfirst.frc0.MyRobot.Robot;
 import org.usfirst.frc0.MyRobot.RobotMap;
 
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 public class Parallel extends Command{
 	//public Parallel(){
@@ -20,7 +21,13 @@ public class Parallel extends Command{
 	@Override
 	protected void execute() {
 		// TODO Auto-generated method stub
-		Robot.parallelBar.move(OI.xboxController2.getRawAxis(5));
+		/*while(Robot.sensors.parallelEncoder.getDistance() <= 0.0)
+		{
+			SmartDashboard.putNumber("Parallel Bar Controller", -1*(OI.xboxController.getRawAxis(5)));
+			Robot.parallelBar.move(0.2);
+		}*/
+		Robot.parallelBar.move(-1*(OI.xboxController2.getRawAxis(5)));
+		
 		 //Robot.parallelBar.move(1);
 	}
 	@Override
