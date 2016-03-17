@@ -75,9 +75,9 @@ public class OI {
         xboxAButton2 = new JoystickButton(xboxController2, 1);
         //xboxAButton2.whileHeld(new PortArmDown());
         xboxRightBumper = new JoystickButton(xboxController, 6);
-        xboxRightBumper.whileHeld(new PortArmDown());
+        xboxRightBumper.whileHeld(new FullForward());
         xboxLeftBumper = new JoystickButton(xboxController, 5);
-        xboxLeftBumper.whileHeld(new PortArmUpp());
+        xboxLeftBumper.whileHeld(new FullBackward());
         
         
         xboxBButton2 = new JoystickButton(xboxController2, 2);

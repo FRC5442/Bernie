@@ -171,7 +171,7 @@ public class Robot extends IterativeRobot {
         Scheduler.getInstance().run();
         SmartDashboard.putNumber("Left Controller", -1*(OI.xboxController.getRawAxis(1)));
         SmartDashboard.putNumber("Right Controller", -1*(OI.xboxController.getRawAxis(5)));
-        if(OI.xboxController.getRawAxis(2) > 0.1)
+        if(OI.xboxController.getRawAxis(2) > 0.1 && RobotMap.armMotor.getPulseWidthPosition() <= 5)
         {
         	arm.turn(-1*OI.xboxController.getRawAxis(2));
         }
