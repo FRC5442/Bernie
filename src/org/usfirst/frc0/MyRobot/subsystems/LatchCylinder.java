@@ -9,7 +9,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 
 public class LatchCylinder extends Subsystem{
 
-	private DoubleSolenoid cylinder = RobotMap.trigger;
+	private Solenoid cylinder = RobotMap.trigger;
 	@Override
 	protected void initDefaultCommand() {
 		// TODO Auto-generated method stub
@@ -18,7 +18,7 @@ public class LatchCylinder extends Subsystem{
 	
 	// To change from Practice to Competition:
 	// Change "Value" rite V to Boolean. Vice versa to change back. (Yes I know that it is mispelled)
-	public void cylinder(Value position){
+	public void cylinder(boolean position){
 		cylinder.set(position);
 		
 	}

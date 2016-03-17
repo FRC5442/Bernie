@@ -19,14 +19,18 @@ public class Shoot extends Command{
 	@Override
 	protected void initialize() {
 		// TODO Auto-generated method stub
-		//// CHANGE FOR PRACTICE TO COMPETITION
-		//latchCylinder.cylinder(true);
-		//Timer.delay(2);
-		//latchCylinder.cylinder(false);
+		//// CHANGE FOR PRACTICE TO COMPETITION DONE DONE DONE DOOOONNNEE
+		//////////////////////// CHANGE DURING COMP: NEED TO FIND RIGHT ENCODERS
+		if (Robot.sensors.armEncoder.getDistance() < 12){
+			latchCylinder.cylinder(true);
+		Timer.delay(2);
+		latchCylinder.cylinder(false);
+		}
 		
-		latchCylinder.cylinder(DoubleSolenoid.Value.kReverse);
-		Timer.delay(1);
-		latchCylinder.cylinder(DoubleSolenoid.Value.kForward);
+		
+		//latchCylinder.cylinder(DoubleSolenoid.Value.kReverse);
+		//Timer.delay(1);
+		//latchCylinder.cylinder(DoubleSolenoid.Value.kForward);
 		//// CHANGE FOR PRACTICE TO COMPETITION END
 	}
 
@@ -44,7 +48,16 @@ public class Shoot extends Command{
 
 	@Override
 	protected void end() {
-		// TODO Auto-generated method stub
+		while(RobotMap.limitSwitch.get() == false){
+			Robot.winchCylinder.wCylinder(true);
+			Timer.delay(.5);
+			RobotMap.winchMotor.set(1);
+			
+		}
+		Timer.delay(.5);
+		RobotMap.winchMotor.set(0);
+		Timer.delay(.25);
+		Robot.winchCylinder.wCylinder(false);
 		
 	}
 

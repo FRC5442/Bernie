@@ -18,7 +18,7 @@ public class Clutch extends Command{
 	protected void execute() {
 		// CHANGE FOR PRACTICE TO COMPETITION
 		//Robot.winchCylinder.cylinder(false);
-		Robot.winchCylinder.wCylinder(DoubleSolenoid.Value.kForward);
+		Robot.winchCylinder.wCylinder(true);
 		// CHANGE FOR PRACTICE TO COMPETITION END
 
 	}

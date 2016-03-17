@@ -17,7 +17,7 @@ public class ClutchOut extends Command {
 	protected void execute() {
 		// CHANGE FOR PRACTICE TO COMPETITION
 		//Robot.winchCylinder.wCylinder(false);
-		Robot.winchCylinder.wCylinder(DoubleSolenoid.Value.kReverse);
+		Robot.winchCylinder.wCylinder(false);
 		// CHANGE FOR PRACTICE TO COMPETITON END
 	}
 

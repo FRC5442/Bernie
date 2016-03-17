@@ -175,6 +175,9 @@ public class Robot extends IterativeRobot {
         //server.startAutomaticCapture("cam2");
         cameras.updateCam();
         //SmartDashboard.putNumber("Arm Encoder", Robot.sensors.armEncoder.getDistance());
+        
+        
+        
     }
 
     /**

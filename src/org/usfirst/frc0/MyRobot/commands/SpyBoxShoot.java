@@ -20,9 +20,9 @@ public class SpyBoxShoot extends Command {
 		}
 		Robot.driveTrain.robotDrive(0, 0);
 		Timer.delay(1);
-		latchCylinder.cylinder(DoubleSolenoid.Value.kReverse);
+		latchCylinder.cylinder(false);
 		Timer.delay(1);
-		latchCylinder.cylinder(DoubleSolenoid.Value.kForward);
+		latchCylinder.cylinder(true);
 
 	}
 

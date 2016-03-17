@@ -45,9 +45,9 @@ public class RobotMap {
 	// Pneumatics
 	public static AnalogInput PressureGauge;
 	public static Compressor compressor;
-  // CHANGE FOR PRACTICE TO COMPETITION
-	public static DoubleSolenoid wCylinder;
-    public static DoubleSolenoid trigger;
+  // CHANGE FOR PRACTICE TO COMPETITION DONE DONE DONE DOOOONNNEE
+	public static Solenoid wCylinder;
+    public static Solenoid trigger;
   //CHANGE FOR PRACTICE TO COMPETITION END
     public static Compressor pneumaticsCompressor;
     // Lights!
@@ -60,27 +60,25 @@ public class RobotMap {
 
     public static void init() {
     	// Sparks!
-    ////Change for competition Robot start
-    	//dTSparkController1 = new Spark(2);
-    	//dTSparkController2 = new Spark(3);
-    	//dTSparkController3 = new Spark(4);
-    	//dTSparkController4 = new Spark(5);
-    	dTSparkController1 = new Spark(1);
+    ////Change for competition Robot start DONE DONE DONE DOOOONNNEE
+    	dTSparkController1 = new Spark(2);
     	dTSparkController2 = new Spark(3);
-    	dTSparkController3 = new Spark(2);
-    	dTSparkController4 = new Spark(4);
+    	dTSparkController3 = new Spark(4);
+    	dTSparkController4 = new Spark(5);
+    	//dTSparkController1 = new Spark(1);
+    	//dTSparkController2 = new Spark(3);
+    	//dTSparkController3 = new Spark(2);
+    	//dTSparkController4 = new Spark(4);
     ////Change for Competition Robot end
     	driveTrainRobotDrive = new RobotDrive(dTSparkController1, dTSparkController2,
     	dTSparkController3, dTSparkController4);
-    	
-    	//hi no
     	winchMotor = new CANTalon(7);
     	armMotor = new CANTalon(8);
     	//remember CANTalons are named by the RIO Interface ID number
     	//parallelBar = new CANTalon(9);
-    ////Change for Competition Robot start
-    	//intakeRoller = new Talon(1);
-    	intakeRoller = new Talon(6);
+    ////Change for Competition Robot start DONE DONE DONE DOOOONNNEE
+    	intakeRoller = new Talon(1);
+    	//intakeRoller = new Talon(6);
     ////Change for Competition Robot end
     	intake = new Talon(5);
     	// Encoder Code CP&P - Fred
@@ -99,16 +97,17 @@ public class RobotMap {
         LiveWindow.addSensor("Encoders", "Quadrature Encoder Left", EncoderLeft);
         ArmEncoder.setSamplesToAverage(5);
         ArmEncoder.setDistancePerPulse(1.0/360);*/
+        
         //Ultrasonic ultra = new Ultrasonic(6,7);
         //ultra.setAutomaticMode(true);
         PressureGauge = new AnalogInput(4);
         limitSwitch = new DigitalInput(1);
         
-        // Change for Practice to Competition Robot 
-        //wCylinder = new Solenoid(1);
-        //trigger = new Solenoid(2);
-        wCylinder = new DoubleSolenoid(3, 4);
-        trigger = new DoubleSolenoid(1, 2);
+        // Change for Practice to Competition Robot DONE DONE DONE DOOOONNNEE
+        wCylinder = new Solenoid(1);
+        trigger = new Solenoid(2);
+        //wCylinder = new DoubleSolenoid(3, 4);
+        //trigger = new DoubleSolenoid(1, 2);
         // Change for Practice to Competition Robot End
         
         
