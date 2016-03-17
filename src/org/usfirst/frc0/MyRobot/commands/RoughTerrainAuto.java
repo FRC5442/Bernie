@@ -17,7 +17,7 @@ public class RoughTerrainAuto extends Command{
 
 	@Override
 	protected void execute() {
-		while(-1 * (RobotMap.EncoderLeft.getDistance()) <= 6);{
+		while(-1 * (RobotMap.EncoderLeft.getDistance()) <= 14);{
 			Robot.driveTrain.robotDrive(.65, .65);
 		}
 		Timer.delay(1);
@@ -27,20 +27,17 @@ public class RoughTerrainAuto extends Command{
 
 	@Override
 	protected boolean isFinished() {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
 	protected void end() {
-		// TODO Auto-generated method stub
 		Robot.driveTrain.robotDrive(0, 0);
 
 	}
 
 	@Override
 	protected void interrupted() {
-		// TODO Auto-generated method stub
 		Robot.driveTrain.robotDrive(0, 0);
 
 	}

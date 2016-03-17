@@ -42,7 +42,6 @@ public class Shoot extends Command{
 
 	@Override
 	protected boolean isFinished() {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
@@ -63,7 +62,6 @@ public class Shoot extends Command{
 
 	@Override
 	protected void interrupted() {
-		// TODO Auto-generated method stub
 		
 	}
 

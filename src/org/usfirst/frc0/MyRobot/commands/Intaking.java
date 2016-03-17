@@ -10,31 +10,26 @@ public class Intaking extends Command{
 
 	@Override
 	protected void initialize() {
-		// TODO Auto-generated method stub
 		//requires(Robot.intake);
 	}
 
 	protected void execute() {
-		// TODO Auto-generated method stub
 		Robot.intake.move(OI.xboxController2.getRawAxis(1));
 		//Robot.intake.move(1);
 	}
 
 	@Override
 	protected boolean isFinished() {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
 	protected void end() {
-		// TODO Auto-generated method stub
 		Robot.intake.move(0);
 	}
 
 	@Override
 	protected void interrupted() {
-		// TODO Auto-generated method stub
 		Robot.intake.move(0);
 	}
 }

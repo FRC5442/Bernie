@@ -35,7 +35,7 @@ public class ReachDefenseAuto extends Command{
 
 	@Override
 	protected void interrupted() {
-		
+		Robot.driveTrain.robotDrive(0, 0);
 	}
 
 }
