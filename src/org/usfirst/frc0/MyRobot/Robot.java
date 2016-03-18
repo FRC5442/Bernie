@@ -79,9 +79,28 @@ public class Robot extends IterativeRobot {
         //lights = new Lights();
         pneumatics = new Pneumatics();
  
+        /** Smart Dashboard
+         * This gives a sendable chooser for the Autonomous Modes
+         * Low Bar
+         * Rough Terrain
+         * Rock Wall
+         * Moat
+         * Rampart
+         * Portcullis
+         */
+        autonomousModes = new SendableChooser();
+        autonomousModes.addObject("Low Bar Autonomous",  new LowBarAuto());
+        autonomousModes.addObject("Rough Terrain Autonomous", new RoughTerrainAuto());
+        autonomousModes.addObject("Rock Wall Autonomous", new RockWallAuto());
+        autonomousModes.addObject("Moat Autonomous", new MoatAuto());
+        autonomousModes.addObject("Rampart Autonomous", new RampartAuto());
+        autonomousModes.addObject("Portcullis Autonomous", new PortcullisAuto());
+        autonomousModes.addObject("Cheval Autonomous", new ChevalAuto());
+        autonomousModes.addObject("Spy Box Autonomous", new SpyBoxShoot());
+        autonomousModes.addObject("Rampart and Shoot Autonomous", new RampartsShootAuto());
+        autonomousModes.addDefault("No autonomous", new NoAuto());
+        SmartDashboard.putData("Autonomous Mode Chooser", autonomousModes);
         
-
-        cameras.init();
         //CameraServer server2;
         
         //server = CameraServer.getInstance();
@@ -106,27 +125,7 @@ public class Robot extends IterativeRobot {
     public void disabledPeriodic() {
         Scheduler.getInstance().run();
         
-        /** Smart Dashboard
-         * This gives a sendable chooser for the Autonomous Modes
-         * Low Bar
-         * Rough Terrain
-         * Rock Wall
-         * Moat
-         * Rampart
-         * Portcullis
-         */
-        autonomousModes = new SendableChooser();
-        autonomousModes.addObject("Low Bar Autonomous",  new LowBarAuto());
-        autonomousModes.addObject("Rough Terrain Autonomous", new RoughTerrainAuto());
-        autonomousModes.addObject("Rock Wall Autonomous", new RockWallAuto());
-        autonomousModes.addObject("Moat Autonomous", new MoatAuto());
-        autonomousModes.addObject("Rampart Autonomous", new RampartAuto());
-        autonomousModes.addObject("Portcullis Autonomous", new PortcullisAuto());
-        autonomousModes.addObject("Cheval Autonomous", new ChevalAuto());
-        autonomousModes.addObject("Spy Box Autonomous", new SpyBoxShoot());
-        autonomousModes.addObject("Rampart and Shoot Autonomous", new RampartsShootAuto());
-        autonomousModes.addDefault("No autonomous", new NoAuto());
-        SmartDashboard.putData("Autonomous Mode Chooser", autonomousModes);
+       
     }
 
     public void autonomousInit() {
@@ -158,7 +157,7 @@ public class Robot extends IterativeRobot {
     public void teleopInit() {
     	
     	if (autonomousCommand != null) autonomousCommand.cancel();
-
+    	cameras.init();
 
 
         
@@ -171,7 +170,7 @@ public class Robot extends IterativeRobot {
         Scheduler.getInstance().run();
         SmartDashboard.putNumber("Left Controller", -1*(OI.xboxController.getRawAxis(1)));
         SmartDashboard.putNumber("Right Controller", -1*(OI.xboxController.getRawAxis(5)));
-        if(OI.xboxController.getRawAxis(2) > 0.1 && RobotMap.armMotor.getPulseWidthPosition() <= 5)
+        if(OI.xboxController.getRawAxis(2) > 0.1)
         {
         	arm.turn(-1*OI.xboxController.getRawAxis(2));
         }

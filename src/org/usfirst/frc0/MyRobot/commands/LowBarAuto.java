@@ -22,17 +22,18 @@ public class LowBarAuto extends Command {
 
 	@Override
 	protected void execute() {
-		while(RobotMap.EncoderRight.getDistance() <= 12){
-			org.usfirst.frc0.MyRobot.Robot.driveTrain.robotDrive(.65, .65);
-			SmartDashboard.putNumber("Auto Encoder Value", RobotMap.EncoderRight.getDistance());
-		}
-		Robot.driveTrain.robotDrive(0, 0);
+		//while(RobotMap.EncoderRight.getDistance() <= 12){
+		org.usfirst.frc0.MyRobot.Robot.driveTrain.robotDrive(.65, .65);
+		SmartDashboard.putNumber("Auto Encoder Value", RobotMap.EncoderRight.getDistance());
+		//}
+		//Robot.driveTrain.robotDrive(0, 0);
 		
 	}
 
 	@Override
 	protected boolean isFinished() {
-		return false;
+		//return false;
+		return (RobotMap.EncoderRight.getDistance() > 12);
 	}
 
 	@Override
