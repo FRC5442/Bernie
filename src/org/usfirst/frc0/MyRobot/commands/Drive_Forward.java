@@ -5,18 +5,20 @@ import org.usfirst.frc0.MyRobot.RobotMap;
 
 import edu.wpi.first.wpilibj.command.Command;
 
-public class DriveForward extends Command {
+public class Drive_Forward extends Command {
 	private double m_distance;
 	private double m_speed;
 	
 	
-	public DriveForward(double distance, double speed){
+	public Drive_Forward(double distance, double speed){
 		m_distance = distance;
 		m_speed = speed;
 	}
 
 	@Override
 	protected void initialize() {
+		Robot.sensors.encoderLeft.reset();
+		Robot.sensors.encoderRight.reset();
 		// TODO Auto-generated method stub
 		
 		

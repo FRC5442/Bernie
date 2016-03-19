@@ -13,6 +13,6 @@ public class Arm extends Subsystem{
 		
 	}
 	public void turn (double speed){
-		armMotor.set(.7*(speed));
+		armMotor.set((speed));
 	}
 }
