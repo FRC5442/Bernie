@@ -13,6 +13,6 @@ public class Catapult extends Subsystem{
 		
 	}
 	public void move(double speed){
-		winchMotor.set(1*(speed));
+		winchMotor.set(speed);
 	}
 }

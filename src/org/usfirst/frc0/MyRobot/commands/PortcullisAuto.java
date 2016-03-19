@@ -12,9 +12,6 @@ public class PortcullisAuto extends Command{
 	@Override
 	protected void initialize() {
 		// TODO Auto-generated method stub
-		//requires(Robot.arm);
-		RobotMap.EncoderLeft.reset();
-		RobotMap.EncoderRight.reset();
 		Robot.arm.turn(-1);
 		Timer.delay(1.5);
 		Robot.arm.turn(0);
