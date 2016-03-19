@@ -10,11 +10,11 @@ public class RampartAuto extends Command {
 
 	@Override
 	protected void initialize() {
-		while(RobotMap.EncoderRight.getDistance() <= 13){
-			org.usfirst.frc0.MyRobot.Robot.driveTrain.robotDrive(-.65, -.65);
-			SmartDashboard.putNumber("Auto Encoder Value", RobotMap.EncoderRight.getDistance());
-		}
-		Robot.driveTrain.robotDrive(0, 0);
+		//while(){
+		org.usfirst.frc0.MyRobot.Robot.driveTrain.robotDrive(-.65, -.65);
+		SmartDashboard.putNumber("Auto Encoder Value", RobotMap.EncoderRight.getDistance());
+		//}
+		//Robot.driveTrain.robotDrive(0, 0);
 	}
 
 	@Override
@@ -24,11 +24,12 @@ public class RampartAuto extends Command {
 
 	@Override
 	protected boolean isFinished() {
-		return false;
+		return RobotMap.EncoderLeft.getDistance() <= 13;
 	}
 
 	@Override
 	protected void end() {
+		Robot.driveTrain.robotDrive(0, 0);
 		
 	}
 

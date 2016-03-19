@@ -97,7 +97,7 @@ public class Robot extends IterativeRobot {
         autonomousModes.addObject("Portcullis Autonomous", new PortcullisAuto());
         autonomousModes.addObject("Cheval Autonomous", new ChevalAuto());
         autonomousModes.addObject("Spy Box Autonomous", new SpyBoxShoot());
-        autonomousModes.addObject("Rampart and Shoot Autonomous", new RampartsShootAuto());
+        autonomousModes.addObject("Straight Through Defense Autonomous", new StraightThoughDefenseAuto());
         autonomousModes.addDefault("No autonomous", new NoAuto());
         SmartDashboard.putData("Autonomous Mode Chooser", autonomousModes);
         
@@ -146,10 +146,10 @@ public class Robot extends IterativeRobot {
     	SmartDashboard.putNumber("Encoder Left", Robot.sensors.encoderLeft.getDistance());
         SmartDashboard.putNumber("Encoder Right", Robot.sensors.encoderRight.getDistance());
         SmartDashboard.putNumber("Parallel Bar Encoder", Robot.sensors.parallelEncoder.getDistance());
-        double VoltsOut = RobotMap.PressureGauge.getVoltage();
-        double Pressure = (250*(VoltsOut/5)-25);
-        SmartDashboard.putNumber("Pneumatic Pressure", Pressure);
-        SmartDashboard.putNumber("Pneumatic Gauge Output Voltage", VoltsOut);
+        //double VoltsOut = RobotMap.PressureGauge.getVoltage();
+        //double Pressure = (250*(VoltsOut/5)-25);
+        //SmartDashboard.putNumber("Pneumatic Pressure", Pressure);
+        //SmartDashboard.putNumber("Pneumatic Gauge Output Voltage", VoltsOut);
         //SmartDashboard.putNumber("Ultrasonic Range: Ready to shoot when under 5 inches", Robot.sensors.ultrasonic.getRangeInches());
    
     }
@@ -168,8 +168,9 @@ public class Robot extends IterativeRobot {
      */
     public void teleopPeriodic() {
         Scheduler.getInstance().run();
-        SmartDashboard.putNumber("Left Controller", -1*(OI.xboxController.getRawAxis(1)));
-        SmartDashboard.putNumber("Right Controller", -1*(OI.xboxController.getRawAxis(5)));
+        SmartDashboard.putNumber("Arm Encoder", RobotMap.armMotor.getEncPosition());
+        SmartDashboard.putNumber("Arm Encoder2", RobotMap.armMotor.getPulseWidthRiseToFallUs());
+        
         if(OI.xboxController.getRawAxis(2) > 0.1)
         {
         	arm.turn(-1*OI.xboxController.getRawAxis(2));

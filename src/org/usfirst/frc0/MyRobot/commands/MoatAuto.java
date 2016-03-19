@@ -14,18 +14,16 @@ public class MoatAuto extends Command {
 
 	@Override
 	protected void execute() {
-		while(-1 * (RobotMap.EncoderRight.getDistance()) <= 15){
-			org.usfirst.frc0.MyRobot.Robot.driveTrain.robotDrive(.8, .8);
-		}
-		Timer.delay(1);
+		//while(-1 * (RobotMap.EncoderRight.getDistance()) <= 15){
+		org.usfirst.frc0.MyRobot.Robot.driveTrain.robotDrive(.8, .8);
 		//Robot.driveTrain.robotDrive(-.3, -.3);
-		Robot.driveTrain.robotDrive(0, 0);
+		//Robot.driveTrain.robotDrive(0, 0);
 		
 	}
 
 	@Override
 	protected boolean isFinished() {
-		return false;
+		return RobotMap.EncoderRight.getDistance() <= 15;
 	}
 
 	@Override

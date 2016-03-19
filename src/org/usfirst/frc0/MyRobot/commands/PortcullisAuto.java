@@ -12,27 +12,29 @@ public class PortcullisAuto extends Command{
 	@Override
 	protected void initialize() {
 		// TODO Auto-generated method stub
-		requires(Robot.arm);
+		//requires(Robot.arm);
 		RobotMap.EncoderLeft.reset();
 		RobotMap.EncoderRight.reset();
+		Robot.arm.turn(-1);
+		Timer.delay(1.5);
+		Robot.arm.turn(0);
+		while(RobotMap.EncoderLeft.getDistance() < 1.5){
+			org.usfirst.frc0.MyRobot.Robot.driveTrain.robotDrive(.65, .65);
+		}
+		//move approx 5'to reach 
+		org.usfirst.frc0.MyRobot.Robot.driveTrain.robotDrive(0, 0);
+		Robot.arm.turn(1);
+		Timer.delay(2);
+		Robot.arm.turn(0);
+		while(RobotMap.EncoderLeft.getDistance() < 5.6){
+			org.usfirst.frc0.MyRobot.Robot.driveTrain.robotDrive(.65, .65);
+		}
 	}
 
 	@Override
 	protected void execute() {
-	Robot.arm.turn(-1);
-	Timer.delay(3);
-	Robot.arm.turn(0);
-	while(RobotMap.EncoderLeft.getDistance() < 1.5){
-		org.usfirst.frc0.MyRobot.Robot.driveTrain.robotDrive(.65, .65);
-	}
-	//move approx 5'to reach 
-	org.usfirst.frc0.MyRobot.Robot.driveTrain.robotDrive(0, 0);
-	Robot.arm.turn(1);
-	Timer.delay(2);
-	Robot.arm.turn(0);
-	while(RobotMap.EncoderLeft.getDistance() < 5.6){
-		org.usfirst.frc0.MyRobot.Robot.driveTrain.robotDrive(.65, .65);
-	}
+	
+	
 	}
 
 	@Override

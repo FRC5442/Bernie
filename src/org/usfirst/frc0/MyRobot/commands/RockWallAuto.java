@@ -14,21 +14,21 @@ public class RockWallAuto extends Command{
 
 	@Override
 	protected void execute() {
-		while(-1 * (RobotMap.EncoderLeft.getDistance()) <= 15);{
-			Robot.driveTrain.robotDrive(.65, .65);
-		}
-		Timer.delay(1);
-		Robot.driveTrain.robotDrive(0,0);
+		//while(-1 * (RobotMap.EncoderLeft.getDistance()) <= 15);{
+			Robot.driveTrain.robotDrive(.8, .8);
+		//}
+		//Timer.delay(1);
+		//Robot.driveTrain.robotDrive(0,0);
 	}
 
 	@Override
 	protected boolean isFinished() {
-		return false;
+		return RobotMap.EncoderLeft.getDistance() <= 15;
 	}
 
 	@Override
 	protected void end() {
-		
+		Robot.driveTrain.robotDrive(0, 0);
 	}
 
 	@Override

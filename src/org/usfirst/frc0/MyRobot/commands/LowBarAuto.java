@@ -33,7 +33,7 @@ public class LowBarAuto extends Command {
 	@Override
 	protected boolean isFinished() {
 		//return false;
-		return (RobotMap.EncoderRight.getDistance() > 12);
+		return (RobotMap.EncoderLeft.getDistance() > 15);
 	}
 
 	@Override

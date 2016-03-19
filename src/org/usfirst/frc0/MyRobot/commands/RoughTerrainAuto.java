@@ -17,17 +17,17 @@ public class RoughTerrainAuto extends Command{
 
 	@Override
 	protected void execute() {
-		while(-1 * (RobotMap.EncoderLeft.getDistance()) <= 14);{
+		//while(-1 * ();{
 			Robot.driveTrain.robotDrive(.65, .65);
-		}
-		Timer.delay(1);
-		Robot.driveTrain.robotDrive(0,0);
+		//}
+		//Timer.delay(1);
+		//Robot.driveTrain.robotDrive(0,0);
 		
 	}
 
 	@Override
 	protected boolean isFinished() {
-		return false;
+		return RobotMap.EncoderLeft.getDistance() <= 14;
 	}
 
 	@Override

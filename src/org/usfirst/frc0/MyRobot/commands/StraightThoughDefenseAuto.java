@@ -8,21 +8,21 @@ import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
-public class RampartsShootAuto extends Command{
+public class StraightThoughDefenseAuto extends Command{
 	
 	private LatchCylinder latchCylinder = Robot.latchCylinder;
 	
-	public RampartsShootAuto(){
+	public StraightThoughDefenseAuto(){
 		requires(latchCylinder);
 	}
 
 	@Override
 	protected void initialize() {
-		while(RobotMap.EncoderRight.getDistance() <= 16){
+		//while(){
 			org.usfirst.frc0.MyRobot.Robot.driveTrain.robotDrive(-.65, -.65);
-			SmartDashboard.putNumber("Auto Encoder Value", RobotMap.EncoderRight.getDistance());
-		}
-		Robot.driveTrain.robotDrive(0, 0);
+			SmartDashboard.putNumber("Auto Encoder Value", RobotMap.EncoderLeft.getDistance());
+		//}
+		//Robot.driveTrain.robotDrive(0, 0);
 		//if (Robot.sensors.armEncoder.getDistance() < 12){
 			//latchCylinder.cylinder(true);
 		//Timer.delay(2);
@@ -38,7 +38,7 @@ public class RampartsShootAuto extends Command{
 
 	@Override
 	protected boolean isFinished() {
-		return false;
+		return RobotMap.EncoderLeft.getDistance() <= 16;
 	}
 
 	@Override
