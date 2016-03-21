@@ -17,7 +17,7 @@ public class PortArmDown extends Command{
 	@Override
 	protected void execute() {
 		// TODO Auto-generated method stub
-		Robot.arm.turn(-1*(OI.xboxController.getRawAxis(3)));
+		Robot.arm.turn(-1*(OI.xboxController.getRawAxis(2)));
 	}
 
 	@Override

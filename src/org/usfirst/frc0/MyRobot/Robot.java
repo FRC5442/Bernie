@@ -190,10 +190,11 @@ public class Robot extends IterativeRobot {
         double Pressure = (250*(VoltsOut/5)-25);
         SmartDashboard.putNumber("Pneumatic Pressure", Pressure);
         SmartDashboard.putNumber("Pneumatic Gauge Output Voltage", VoltsOut);
+        SmartDashboard.putNumber("Arm Encoder", RobotMap.armMotor.getEncPosition());
         //SmartDashboard.putNumber("Ultrasonic Range: Ready to shoot when under 5 inches", Robot.sensors.ultrasonic.getRangeInches());
         //server.startAutomaticCapture("cam2");
         cameras.updateCam();
-        //SmartDashboard.putNumber("Arm Encoder", Robot.sensors.armEncoder.getDistance());
+        
         
         
         

@@ -20,7 +20,7 @@ public class Shoot extends Command{
 	protected void initialize() {
 		//// CHANGE FOR PRACTICE TO COMPETITION DONE DONE DONE DOOOONNNEE
 		//////////////////////// CHANGE DURING COMP: NEED TO FIND RIGHT ENCODERS
-		//if (Robot.sensors.armEncoder.getDistance() < 12){
+		if (RobotMap.armMotor.getEncPosition() < 12){
 		//	latchCylinder.cylinder(true);
 		//Timer.delay(2);
 		//latchCylinder.cylinder(false);
@@ -28,7 +28,7 @@ public class Shoot extends Command{
 		Timer.delay(.5);
 		latchCylinder.cylinder(false);
 		
-		
+		}
 		//latchCylinder.cylinder(DoubleSolenoid.Value.kReverse);
 		//Timer.delay(1);
 		//latchCylinder.cylinder(DoubleSolenoid.Value.kForward);

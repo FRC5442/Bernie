@@ -74,6 +74,7 @@ public class RobotMap {
     	dTSparkController3, dTSparkController4);
     	winchMotor = new CANTalon(7);
     	armMotor = new CANTalon(8);
+    	
     	//remember CANTalons are named by the RIO Interface ID number
     	//parallelBar = new CANTalon(9);
     ////Change for Competition Robot start DONE DONE DONE DOOOONNNEE
