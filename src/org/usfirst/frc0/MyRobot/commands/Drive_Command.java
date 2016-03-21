@@ -5,12 +5,12 @@ import org.usfirst.frc0.MyRobot.RobotMap;
 
 import edu.wpi.first.wpilibj.command.Command;
 
-public class Drive_Forward extends Command {
+public class Drive_Command extends Command {
 	private double m_distance;
 	private double m_speed;
 	
 	
-	public Drive_Forward(double distance, double speed){
+	public Drive_Command(double distance, double speed){
 		m_distance = distance;
 		m_speed = speed;
 	}
