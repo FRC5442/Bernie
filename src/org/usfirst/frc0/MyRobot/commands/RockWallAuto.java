@@ -9,31 +9,33 @@ public class RockWallAuto extends Command{
 
 	@Override
 	protected void initialize() {
+		RobotMap.EncoderLeft.reset();
+		Robot.driveTrain.robotDrive(.65, .65);
 
 	}
 
 	@Override
 	protected void execute() {
-		while(-1 * (RobotMap.EncoderLeft.getDistance()) <= 15);{
-			Robot.driveTrain.robotDrive(.65, .65);
-		}
-		Timer.delay(1);
-		Robot.driveTrain.robotDrive(0,0);
+		//while(-1 * (RobotMap.EncoderLeft.getDistance()) <= 15);{
+			Robot.driveTrain.robotDrive(.8, .8);
+		//}
+		//Timer.delay(1);
+		//
 	}
 
 	@Override
 	protected boolean isFinished() {
-		return false;
+		return RobotMap.EncoderLeft.getDistance() >= 16;
 	}
 
 	@Override
 	protected void end() {
-		
+		Robot.driveTrain.robotDrive(0,0);
 	}
 
 	@Override
 	protected void interrupted() {
-		
+		Robot.driveTrain.robotDrive(0,0);
 	}
 
 }
