@@ -11,8 +11,8 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
  */
 public class AutoStraightShootCmdG extends CommandGroup {
 	public AutoStraightShootCmdG(){
-		addSequential(new DriveForward(16,.65));
-		addSequential(new )
+		addSequential(new Drive_Command(16,.65));
+		//addSequential(new Timer_Sleep(2));
 	}
 
 }
