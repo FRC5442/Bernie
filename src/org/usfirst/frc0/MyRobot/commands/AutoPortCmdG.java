@@ -9,9 +9,9 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
  * @author FIRSTMentor
  *
  */
-public class AutoPort extends CommandGroup {
+public class AutoPortCmdG extends CommandGroup {
 	
-	public AutoPort(){
+	public AutoPortCmdG(){
 		// Put arm down
 		addSequential(new PortArmAuto(-1));
 		addSequential(new Timer_Sleep(0.8));

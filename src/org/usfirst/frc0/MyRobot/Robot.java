@@ -94,10 +94,10 @@ public class Robot extends IterativeRobot {
         autonomousModes.addObject("Rock Wall Autonomous", new RockWallAuto());
         autonomousModes.addObject("Moat Autonomous", new MoatAuto());
         autonomousModes.addObject("Rampart Autonomous", new RampartAuto());
-        autonomousModes.addObject("Portcullis Autonomous", new AutoPort());
+        //autonomousModes.addObject("Portcullis Autonomous", new AutoPort());
         autonomousModes.addObject("Cheval Autonomous", new ChevalAuto());
         autonomousModes.addObject("Spy Box Autonomous", new SpyBoxShoot());
-        autonomousModes.addObject("Straight Through Defense Autonomous", new StraightThoughDefenseAuto());
+        //autonomousModes.addObject("Straight Through Defense Autonomous", new StraightThoughDefenseAuto());
         autonomousModes.addDefault("No autonomous", new NoAuto());
         SmartDashboard.putData("Autonomous Mode Chooser", autonomousModes);
         
