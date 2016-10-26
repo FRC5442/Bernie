@@ -24,9 +24,9 @@ public class Shoot extends Command{
 		//	latchCylinder.cylinder(true);
 		//Timer.delay(2);
 		//latchCylinder.cylinder(false);
-		latchCylinder.cylinder(true);
+		LatchCylinder.cylinder(true);
 		Timer.delay(.5);
-		latchCylinder.cylinder(false);
+		LatchCylinder.cylinder(false);
 		
 		
 		//latchCylinder.cylinder(DoubleSolenoid.Value.kReverse);

@@ -3,6 +3,9 @@
  */
 package org.usfirst.frc0.MyRobot.commands;
 
+import org.usfirst.frc0.MyRobot.subsystems.LatchCylinder;
+
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
@@ -10,46 +13,32 @@ import edu.wpi.first.wpilibj.command.Command;
  *
  */
 public class SCylinder_Toggle extends Command {
+	
 
-	/* (non-Javadoc)
-	 * @see edu.wpi.first.wpilibj.command.Command#initialize()
-	 */
 	@Override
 	protected void initialize() {
-		// TODO Auto-generated method stub
 
 	}
 
-	/* (non-Javadoc)
-	 * @see edu.wpi.first.wpilibj.command.Command#execute()
-	 */
 	@Override
 	protected void execute() {
-		// TODO Auto-generated method stub
+		LatchCylinder.cylinder(true);
+		Timer.delay(.25);
 
 	}
 
-	/* (non-Javadoc)
-	 * @see edu.wpi.first.wpilibj.command.Command#isFinished()
-	 */
 	@Override
 	protected boolean isFinished() {
 		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
 
-	/* (non-Javadoc)
-	 * @see edu.wpi.first.wpilibj.command.Command#end()
-	 */
 	@Override
 	protected void end() {
-		// TODO Auto-generated method stub
+		LatchCylinder.cylinder(false);
 
 	}
-
-	/* (non-Javadoc)
-	 * @see edu.wpi.first.wpilibj.command.Command#interrupted()
-	 */
+	
 	@Override
 	protected void interrupted() {
 		// TODO Auto-generated method stub
