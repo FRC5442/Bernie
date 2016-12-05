@@ -4,7 +4,7 @@ import org.usfirst.frc0.MyRobot.Robot;
 import org.usfirst.frc0.MyRobot.RobotMap;
 
 import edu.wpi.first.wpilibj.command.Command;
-
+// To be completely honest, This comment is to make sure that the revert from the great Training Disaster of 2016 is fixed. Thank you. PRAISE THE CODE GODS
 public class Drive_Command extends Command {
 	private double m_distance;
 	private double m_speed;
