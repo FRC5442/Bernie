@@ -1,0 +1,13 @@
+import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.Spark;
+
+public class TankDrive_Test {
+	
+	Joystick stick1 = new Joystick(1);
+	Joystick stick2 = new Joystick(2);
+	
+	Spark spark1 = new Spark(1);
+	Spark spark2 = new Spark(2);
+	Spark spark3 = new Spark(3);
+	Spark spark4 = new Spark(4);
+}
