@@ -1,6 +1,6 @@
 /**
  * 
- */
+ **/
 package org.usfirst.frc0.MyRobot.commands;
 
 import org.usfirst.frc0.MyRobot.Robot;
@@ -33,7 +33,7 @@ public class PortArmAuto extends Command {
 	@Override
 	protected void execute() {
 		// TODO Auto-generated method stub
-		Robot.arm.turn(m_speed);
+		//Robot.arm.turn(m_speed);
 
 	}
 

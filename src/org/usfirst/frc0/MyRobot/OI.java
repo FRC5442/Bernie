@@ -81,7 +81,7 @@ public class OI {
         
         
         xboxBButton2 = new JoystickButton(xboxController2, 2);
-        xboxBButton2.whileHeld(new Wind());
+        //xboxBButton2.whileHeld(new Wind());
         xboxXButton2 = new JoystickButton(xboxController2, 3);
         xboxXButton2.whileHeld(new Clutch());
         xboxYButton2 = new JoystickButton(xboxController2, 4);
@@ -91,7 +91,7 @@ public class OI {
         xboxRightBumper2 = new JoystickButton(xboxController2, 5);
         xboxRightBumper2.whileHeld(new Intaking());
         xboxBackButton2 = new JoystickButton(xboxController2, 7);
-        xboxBackButton2.whileHeld(new SwitchCamera());
+       // xboxBackButton2.whileHeld(new SwitchCamera());
         // SmartDashboard Buttons
         //SmartDashboard.putData("Autonomous Command", new AutonomousCommand());
     }

@@ -10,7 +10,7 @@ public class ChevalAuto extends Command{
 
 	@Override
 	protected void initialize() {
-		requires(Robot.arm);
+		//requires(Robot.arm);
 		RobotMap.EncoderLeft.reset();
 		RobotMap.EncoderRight.reset();
 	}
@@ -21,9 +21,9 @@ public class ChevalAuto extends Command{
 			org.usfirst.frc0.MyRobot.Robot.driveTrain.robotDrive(.65, .65);
 		}
 		org.usfirst.frc0.MyRobot.Robot.driveTrain.robotDrive(0, 0);
-		Robot.arm.turn(-1);
+		//Robot.arm.turn(-1);
 		Timer.delay(3);
-		Robot.arm.turn(0);
+		//Robot.arm.turn(0);
 		while(RobotMap.EncoderLeft.getDistance() < 5.6){
 			org.usfirst.frc0.MyRobot.Robot.driveTrain.robotDrive(.65, .65);
 		}
@@ -38,13 +38,13 @@ public class ChevalAuto extends Command{
 	@Override
 	protected void end() {
 		org.usfirst.frc0.MyRobot.Robot.driveTrain.robotDrive(0, 0);	
-		Robot.arm.turn(0);
+		//Robot.arm.turn(0);
 	}
 
 	@Override
 	protected void interrupted() {
 		org.usfirst.frc0.MyRobot.Robot.driveTrain.robotDrive(0, 0);
-		Robot.arm.turn(0);
+		//Robot.arm.turn(0);
 	}
 
 }

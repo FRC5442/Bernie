@@ -1,4 +1,4 @@
-
+/*
 package org.usfirst.frc0.MyRobot.subsystems;
 
 import org.usfirst.frc0.MyRobot.RobotMap;
@@ -23,3 +23,4 @@ public class ParallelBar extends Subsystem{
 		parallelBar.set(speed);
 	}
 }
+*/

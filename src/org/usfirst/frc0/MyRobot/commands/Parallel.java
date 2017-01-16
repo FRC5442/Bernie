@@ -26,7 +26,7 @@ public class Parallel extends Command{
 			SmartDashboard.putNumber("Parallel Bar Controller", -1*(OI.xboxController.getRawAxis(5)));
 			Robot.parallelBar.move(0.2);
 		}*/
-		Robot.parallelBar.move(-1*(OI.xboxController2.getRawAxis(5)));
+		//Robot.parallelBar.move(-1*(OI.xboxController2.getRawAxis(5)));
 		
 		 //Robot.parallelBar.move(1);
 	}
@@ -39,12 +39,12 @@ public class Parallel extends Command{
 	@Override
 	protected void end() {
 		// TODO Auto-generated method stub
-		Robot.parallelBar.move(0);
+		//Robot.parallelBar.move(0);
 	}
 	@Override
 	protected void interrupted() {
 		// TODO Auto-generated method stub
-		Robot.parallelBar.move(0);
+		//Robot.parallelBar.move(0);
 	}
 }
 

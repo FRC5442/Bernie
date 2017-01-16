@@ -46,11 +46,11 @@ public class StraightThoughDefenseAuto extends Command{
 		while(RobotMap.limitSwitch.get() == false){
 			Robot.winchCylinder.wCylinder(true);
 			Timer.delay(.5);
-			RobotMap.winchMotor.set(1);
+			//RobotMap.winchMotor.set(1);
 			
 		}
 		Timer.delay(.5);
-		RobotMap.winchMotor.set(0);
+		//RobotMap.winchMotor.set(0);
 		Timer.delay(.25);
 		Robot.winchCylinder.wCylinder(false);
 		

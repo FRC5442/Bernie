@@ -1,4 +1,4 @@
-package org.usfirst.frc0.MyRobot.subsystems;
+/*package org.usfirst.frc0.MyRobot.subsystems;
 
 import org.usfirst.frc0.MyRobot.RobotMap;
 
@@ -16,3 +16,4 @@ public class Arm extends Subsystem{
 		armMotor.set((speed));
 	}
 }
+*/

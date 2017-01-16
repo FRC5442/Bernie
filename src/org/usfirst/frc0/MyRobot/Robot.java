@@ -28,11 +28,12 @@ import org.usfirst.frc0.MyRobot.RobotMap;
 import edu.wpi.first.wpilibj.Ultrasonic;
 
 import com.kauailabs.nav6.frc.IMU;
+/*
 import com.ni.vision.NIVision;
 import com.ni.vision.NIVision.DrawMode;
 import com.ni.vision.NIVision.Image;
 import com.ni.vision.NIVision.ShapeMode;
-
+*/
 @SuppressWarnings("unused")
 public class Robot extends IterativeRobot {
 
@@ -44,18 +45,18 @@ public class Robot extends IterativeRobot {
     public static Sensors sensors;
     public static NavXBoard navXBoard;
     public static Intake intake;
-    public static Catapult catapult;
+    //public static Catapult catapult;
     public static LatchCylinder latchCylinder;
     public static WinchCylinder winchCylinder;
-    public static Arm arm;
-    public static ParallelBar parallelBar;
+    //public static Arm arm;
+    //public static ParallelBar parallelBar;
     //public static Lights lights;
     public static Pneumatics pneumatics;
-    public static Cameras cameras;
+    //public static Cameras cameras;
     //public static CameraServer server;
     int session;
-    Image frame;
-    NIVision.Rect rect;
+    //Image frame;
+    //NIVision.Rect rect;
     
     public void robotInit() {
     RobotMap.init();
@@ -63,8 +64,8 @@ public class Robot extends IterativeRobot {
     	intake = new Intake();
         driveTrain = new DriveTrain();
         sensors = new Sensors();
-        catapult = new Catapult();    
-        cameras = new Cameras();
+        //catapult = new Catapult();    
+        //cameras = new Cameras();
         latchCylinder = new LatchCylinder();
         winchCylinder = new WinchCylinder();
         
@@ -74,8 +75,8 @@ public class Robot extends IterativeRobot {
         Robot.sensors.parallelEncoder.reset();
         navXBoard = new NavXBoard();
         oi = new OI();
-        arm = new Arm();
-        parallelBar = new ParallelBar();
+        //arm = new Arm();
+        //parallelBar = new ParallelBar();
         //lights = new Lights();
         pneumatics = new Pneumatics();
  
@@ -157,7 +158,7 @@ public class Robot extends IterativeRobot {
     public void teleopInit() {
     	
     	if (autonomousCommand != null) autonomousCommand.cancel();
-    	cameras.init();
+    	//cameras.init();
 
 
         
@@ -168,9 +169,9 @@ public class Robot extends IterativeRobot {
      */
     public void teleopPeriodic() {
         Scheduler.getInstance().run();
-        SmartDashboard.putNumber("Arm Encoder", RobotMap.armMotor.getEncPosition());
-        SmartDashboard.putNumber("Arm Encoder2", RobotMap.armMotor.getPulseWidthRiseToFallUs());
-        
+        //SmartDashboard.putNumber("Arm Encoder", RobotMap.armMotor.getEncPosition());
+        //SmartDashboard.putNumber("Arm Encoder2", RobotMap.armMotor.getPulseWidthRiseToFallUs());
+        /*
         if(OI.xboxController.getRawAxis(2) > 0.1)
         {
         	arm.turn(-1*OI.xboxController.getRawAxis(2));
@@ -183,7 +184,7 @@ public class Robot extends IterativeRobot {
         	
         	arm.turn(0.0);
         }
-        
+        */
         SmartDashboard.putNumber("Encoder Left", Robot.sensors.encoderLeft.getDistance());
         SmartDashboard.putNumber("Encoder Right", Robot.sensors.encoderRight.getDistance());
         SmartDashboard.putNumber("Parallel Bar Encoder", Robot.sensors.parallelEncoder.getDistance());
@@ -193,7 +194,7 @@ public class Robot extends IterativeRobot {
         SmartDashboard.putNumber("Pneumatic Gauge Output Voltage", VoltsOut);
         //SmartDashboard.putNumber("Ultrasonic Range: Ready to shoot when under 5 inches", Robot.sensors.ultrasonic.getRangeInches());
         //server.startAutomaticCapture("cam2");
-        cameras.updateCam();
+        //cameras.updateCam();
         //SmartDashboard.putNumber("Arm Encoder", Robot.sensors.armEncoder.getDistance());
         
         

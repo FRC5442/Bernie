@@ -30,8 +30,8 @@ public class RobotMap {
 	public static SpeedController dTSparkController4;
 	public static RobotDrive driveTrainRobotDrive;
 	////Intake and Winch Motors
-	public static CANTalon winchMotor;
-	public static CANTalon armMotor;
+	//public static CANTalon winchMotor;
+	//public static CANTalon armMotor;
 	public static Talon intakeRoller;
     public static Talon intake;
 	// Encoders
@@ -56,7 +56,7 @@ public class RobotMap {
     //public static Solenoid LedLights2;
     // Other Stuff
     public static DigitalInput limitSwitch;
-	public static CANTalon parallelBar;
+	//public static CANTalon parallelBar;
 
     public static void init() {
     	// Sparks!
@@ -72,9 +72,9 @@ public class RobotMap {
     ////Change for Competition Robot end
     	driveTrainRobotDrive = new RobotDrive(dTSparkController1, dTSparkController2,
     	dTSparkController3, dTSparkController4);
-    	winchMotor = new CANTalon(7);
-    	armMotor = new CANTalon(8);
-    	armMotor.setFeedbackDevice(CANTalon.FeedbackDevice.CtreMagEncoder_Relative);
+    	//winchMotor = new CANTalon(7);
+    	//armMotor = new CANTalon(8);
+    	//armMotor.setFeedbackDevice(CANTalon.FeedbackDevice.CtreMagEncoder_Relative);
     	//remember CANTalons are named by the RIO Interface ID number
     	//parallelBar = new CANTalon(9);
     ////Change for Competition Robot start DONE DONE DONE DOOOONNNEE
