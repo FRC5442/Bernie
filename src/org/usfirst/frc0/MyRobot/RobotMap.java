@@ -12,6 +12,8 @@ import edu.wpi.first.wpilibj.interfaces.Potentiometer;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import java.util.Vector;
 import com.kauailabs.navx_mxp.AHRS;
+import com.ctre.*;
+import com.ni.vision.*;
 
 /**
  * The RobotMap is a mapping from the ports sensors and actuators are wired into
@@ -30,8 +32,8 @@ public class RobotMap {
 	public static SpeedController dTSparkController4;
 	public static RobotDrive driveTrainRobotDrive;
 	////Intake and Winch Motors
-	public static CANTalon winchMotor;
-	public static CANTalon armMotor;
+	public static CANSpeedController winchMotor;
+	public static CANSpeedController armMotor;
 	public static Talon intakeRoller;
     public static Talon intake;
 	// Encoders
@@ -56,7 +58,7 @@ public class RobotMap {
     //public static Solenoid LedLights2;
     // Other Stuff
     public static DigitalInput limitSwitch;
-	public static CANTalon parallelBar;
+	public static CANSpeedController parallelBar;
 
     public static void init() {
     	// Sparks!
@@ -74,7 +76,7 @@ public class RobotMap {
     	dTSparkController3, dTSparkController4);
     	winchMotor = new CANTalon(7);
     	armMotor = new CANTalon(8);
-    	armMotor.setFeedbackDevice(CANTalon.FeedbackDevice.CtreMagEncoder_Relative);
+    	((CANTalon) armMotor).setFeedbackDevice(CANTalon.FeedbackDevice.CtreMagEncoder_Relative);
     	//remember CANTalons are named by the RIO Interface ID number
     	//parallelBar = new CANTalon(9);
     ////Change for Competition Robot start DONE DONE DONE DOOOONNNEE

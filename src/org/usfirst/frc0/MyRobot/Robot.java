@@ -11,27 +11,41 @@
 
 package org.usfirst.frc0.MyRobot;
 
-import edu.wpi.first.wpilibj.CameraServer;
-import edu.wpi.first.wpilibj.Encoder;
+import java.awt.Image;
+
+import org.usfirst.frc0.MyRobot.commands.ChevalAuto;
+import org.usfirst.frc0.MyRobot.commands.LowBarAuto;
+import org.usfirst.frc0.MyRobot.commands.MoatAuto;
+import org.usfirst.frc0.MyRobot.commands.NoAuto;
+import org.usfirst.frc0.MyRobot.commands.RampartAuto;
+import org.usfirst.frc0.MyRobot.commands.RockWallAuto;
+import org.usfirst.frc0.MyRobot.commands.RoughTerrainAuto;
+import org.usfirst.frc0.MyRobot.commands.SpyBoxShoot;
+import org.usfirst.frc0.MyRobot.commands.StraightThoughDefenseAuto;
+//import org.usfirst.frc0.MyRobot.commands.Parallel;
+import org.usfirst.frc0.MyRobot.subsystems.Arm;
+import org.usfirst.frc0.MyRobot.subsystems.Cameras;
+import org.usfirst.frc0.MyRobot.subsystems.Catapult;
+import org.usfirst.frc0.MyRobot.subsystems.DriveTrain;
+import org.usfirst.frc0.MyRobot.subsystems.Intake;
+import org.usfirst.frc0.MyRobot.subsystems.LatchCylinder;
+import org.usfirst.frc0.MyRobot.subsystems.NavXBoard;
+import org.usfirst.frc0.MyRobot.subsystems.ParallelBar;
+import org.usfirst.frc0.MyRobot.subsystems.Pneumatics;
+import org.usfirst.frc0.MyRobot.subsystems.Sensors;
+import org.usfirst.frc0.MyRobot.subsystems.WinchCylinder;
+
+import com.ctre.CANTalon;
+import com.ni.vision.NIVision;
+import com.ni.vision.*;
+
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.Preferences;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
-import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-import org.usfirst.frc0.MyRobot.commands.*;
-//import org.usfirst.frc0.MyRobot.commands.Parallel;
-import org.usfirst.frc0.MyRobot.subsystems.*;
-import org.usfirst.frc0.MyRobot.RobotMap;
-import edu.wpi.first.wpilibj.Ultrasonic;
-
-import com.kauailabs.nav6.frc.IMU;
-import com.ni.vision.NIVision;
-import com.ni.vision.NIVision.DrawMode;
-import com.ni.vision.NIVision.Image;
-import com.ni.vision.NIVision.ShapeMode;
 
 @SuppressWarnings("unused")
 public class Robot extends IterativeRobot {
@@ -168,8 +182,8 @@ public class Robot extends IterativeRobot {
      */
     public void teleopPeriodic() {
         Scheduler.getInstance().run();
-        SmartDashboard.putNumber("Arm Encoder", RobotMap.armMotor.getEncPosition());
-        SmartDashboard.putNumber("Arm Encoder2", RobotMap.armMotor.getPulseWidthRiseToFallUs());
+        SmartDashboard.putNumber("Arm Encoder", ((CANTalon) RobotMap.armMotor).getEncPosition());
+        SmartDashboard.putNumber("Arm Encoder2", ((CANTalon) RobotMap.armMotor).getPulseWidthRiseToFallUs());
         
         if(OI.xboxController.getRawAxis(2) > 0.1)
         {

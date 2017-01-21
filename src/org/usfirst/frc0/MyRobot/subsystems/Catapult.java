@@ -2,12 +2,12 @@ package org.usfirst.frc0.MyRobot.subsystems;
 
 import org.usfirst.frc0.MyRobot.RobotMap;
 
-import edu.wpi.first.wpilibj.CANTalon;
+import com.ctre.*;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 public class Catapult extends Subsystem{
 
-	CANTalon winchMotor = RobotMap.winchMotor;
+	CANTalon winchMotor = (CANTalon) RobotMap.winchMotor;
 	@Override
 	protected void initDefaultCommand() {
 		

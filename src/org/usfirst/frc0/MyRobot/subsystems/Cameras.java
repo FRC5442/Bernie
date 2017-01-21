@@ -1,7 +1,7 @@
 
 package org.usfirst.frc0.MyRobot.subsystems;
 
-import com.ni.vision.NIVision;
+import com.ni.vision.*;
 import com.ni.vision.NIVision.Image;
 import edu.wpi.first.wpilibj.CameraServer;
 
@@ -26,7 +26,8 @@ public class Cameras
         frame = NIVision.imaqCreateImage(NIVision.ImageType.IMAGE_RGB, 0);
         // Server that we'll give the img to
         server = CameraServer.getInstance();
-        server.setQuality(camQuality);
+        
+        
 	}
 	
 	public void init()
@@ -72,6 +73,6 @@ public class Cameras
     public void updateCam()
     {
     	NIVision.IMAQdxGrab(curCam, frame, 1);
-        server.setImage(frame);
+        
     }
 }
