@@ -2,10 +2,12 @@ package org.usfirst.frc0.MyRobot.subsystems;
 
 import org.usfirst.frc0.MyRobot.RobotMap;
 
+import com.kauailabs.navx.frc.AHRS;
+
 import edu.wpi.first.wpilibj.command.PIDSubsystem;
 
 public class NavXBoard extends PIDSubsystem{
-	private com.kauailabs.navx_mxp.AHRS gyro = RobotMap.imu;
+	private AHRS gyro = RobotMap.ahrs;
 
 	public NavXBoard() {
 		super("Gyro", 2.0,0.0,0.0);

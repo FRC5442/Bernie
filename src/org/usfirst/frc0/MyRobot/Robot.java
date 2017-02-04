@@ -30,17 +30,23 @@ import org.usfirst.frc0.MyRobot.subsystems.DriveTrain;
 import org.usfirst.frc0.MyRobot.subsystems.Intake;
 import org.usfirst.frc0.MyRobot.subsystems.LatchCylinder;
 import org.usfirst.frc0.MyRobot.subsystems.NavXBoard;
+import org.usfirst.frc0.MyRobot.subsystems.PIDTEST;
 import org.usfirst.frc0.MyRobot.subsystems.ParallelBar;
 import org.usfirst.frc0.MyRobot.subsystems.Pneumatics;
 import org.usfirst.frc0.MyRobot.subsystems.Sensors;
 import org.usfirst.frc0.MyRobot.subsystems.WinchCylinder;
 
 import com.ctre.CANTalon;
+import com.kauailabs.navx.frc.AHRS;
 import com.ni.vision.NIVision;
 import com.ni.vision.*;
 
+import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.IterativeRobot;
+import edu.wpi.first.wpilibj.PIDController;
+import edu.wpi.first.wpilibj.PIDOutput;
 import edu.wpi.first.wpilibj.Preferences;
+import edu.wpi.first.wpilibj.SerialPort;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
@@ -48,8 +54,9 @@ import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 @SuppressWarnings("unused")
-public class Robot extends IterativeRobot {
+public class Robot extends IterativeRobot{
 
+	AHRS ahrs;
     Command autonomousCommand;
     SendableChooser autonomousModes;
     Preferences prefs;
@@ -63,6 +70,7 @@ public class Robot extends IterativeRobot {
     public static WinchCylinder winchCylinder;
     public static Arm arm;
     public static ParallelBar parallelBar;
+    public static PIDTEST pidTest;
     //public static Lights lights;
     public static Pneumatics pneumatics;
     public static Cameras cameras;
@@ -72,7 +80,8 @@ public class Robot extends IterativeRobot {
     NIVision.Rect rect;
     
     public void robotInit() {
-    RobotMap.init();
+   
+    	RobotMap.init();
     	
     	intake = new Intake();
         driveTrain = new DriveTrain();
@@ -81,6 +90,7 @@ public class Robot extends IterativeRobot {
         cameras = new Cameras();
         latchCylinder = new LatchCylinder();
         winchCylinder = new WinchCylinder();
+        pidTest = new PIDTEST();
         
         prefs = Preferences.getInstance();
         Robot.sensors.encoderLeft.reset();
@@ -93,6 +103,9 @@ public class Robot extends IterativeRobot {
         //lights = new Lights();
         pneumatics = new Pneumatics();
  
+       
+        
+        
         /** Smart Dashboard
          * This gives a sendable chooser for the Autonomous Modes
          * Low Bar
@@ -145,8 +158,8 @@ public class Robot extends IterativeRobot {
     public void autonomousInit() {
         RobotMap.EncoderLeft.reset();
         RobotMap.EncoderRight.reset();
-        RobotMap.navXBoard.reset();
-    	RobotMap.imu.zeroYaw();
+        //RobotMap.navXBoard.reset();
+    	RobotMap.ahrs.zeroYaw();
     	if (autonomousCommand != null) autonomousCommand.start();
         autonomousCommand = (Command) autonomousModes.getSelected();
         autonomousCommand.start();
@@ -220,4 +233,7 @@ public class Robot extends IterativeRobot {
     public void testPeriodic() {
         LiveWindow.run();
     }
+
+
+	
 }

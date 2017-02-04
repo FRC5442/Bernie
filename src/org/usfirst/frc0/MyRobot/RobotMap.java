@@ -11,7 +11,7 @@ import edu.wpi.first.wpilibj.CounterBase.EncodingType;
 import edu.wpi.first.wpilibj.interfaces.Potentiometer;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import java.util.Vector;
-import com.kauailabs.navx_mxp.AHRS;
+import com.kauailabs.navx.frc.*;
 import com.ctre.*;
 import com.ni.vision.*;
 
@@ -42,8 +42,8 @@ public class RobotMap {
 	public static Encoder ParallelEncoder;
 	//public static Ultrasonic ultrasonic;
 	// NavX accelerometer board
-	public static AHRS imu;
-	public static SerialPort navXBoard;
+	public static AHRS ahrs;
+	//public static SerialPort navXBoard;
 	// Pneumatics
 	public static AnalogInput PressureGauge;
 	public static Compressor compressor;
@@ -116,9 +116,9 @@ public class RobotMap {
         
         //light = new DoubleSolenoid(3, 0, 1);
         
-        navXBoard = new SerialPort(57600,SerialPort.Port.kMXP);
-        byte update_rate_hz = 50;
-        imu = new AHRS(navXBoard,update_rate_hz);
+      
+        //byte update_rate_hz = 50;
+        ahrs = new AHRS(SerialPort.Port.kUSB);
         pneumaticsCompressor = new Compressor(0);
         
     }
