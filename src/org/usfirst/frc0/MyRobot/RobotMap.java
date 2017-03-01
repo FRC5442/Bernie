@@ -63,8 +63,8 @@ public class RobotMap {
     ////Change for competition Robot start DONE DONE DONE DOOOONNNEE
     	dTSparkController1 = new Spark(2);
     	dTSparkController2 = new Spark(3);
-    	dTSparkController3 = new Spark(4);
-    	dTSparkController4 = new Spark(5);
+    	dTSparkController3 = new Talon(4);
+    	dTSparkController4 = new Talon(5);
     	//dTSparkController1 = new Spark(1);
     	//dTSparkController2 = new Spark(3);
     	//dTSparkController3 = new Spark(2);
