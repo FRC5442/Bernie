@@ -26,7 +26,7 @@ public class Cameras
         frame = NIVision.imaqCreateImage(NIVision.ImageType.IMAGE_RGB, 0);
         // Server that we'll give the img to
         server = CameraServer.getInstance();
-        server.setQuality(camQuality);
+        //server.setQuality(camQuality);
 	}
 	
 	public void init()
@@ -72,6 +72,6 @@ public class Cameras
     public void updateCam()
     {
     	NIVision.IMAQdxGrab(curCam, frame, 1);
-        server.setImage(frame);
+        //server.setImage(frame);
     }
 }

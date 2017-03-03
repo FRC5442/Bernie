@@ -5,7 +5,7 @@ import org.usfirst.frc0.MyRobot.RobotMap;
 
 import org.usfirst.frc0.MyRobot.commands.Parallel;
 
-import edu.wpi.first.wpilibj.CANTalon;
+import com.ctre.*;
 import edu.wpi.first.wpilibj.SpeedController;
 import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.command.Subsystem;
