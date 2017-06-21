@@ -11,27 +11,35 @@
 
 package org.usfirst.frc0.MyRobot;
 
-import edu.wpi.first.wpilibj.CameraServer;
-import edu.wpi.first.wpilibj.Encoder;
+import org.usfirst.frc0.MyRobot.commands.ChevalAuto;
+import org.usfirst.frc0.MyRobot.commands.LowBarAuto;
+import org.usfirst.frc0.MyRobot.commands.MoatAuto;
+import org.usfirst.frc0.MyRobot.commands.NoAuto;
+import org.usfirst.frc0.MyRobot.commands.PortcullisAuto;
+import org.usfirst.frc0.MyRobot.commands.RampartAuto;
+import org.usfirst.frc0.MyRobot.commands.RampartsShootAuto;
+import org.usfirst.frc0.MyRobot.commands.RockWallAuto;
+import org.usfirst.frc0.MyRobot.commands.RoughTerrainAuto;
+import org.usfirst.frc0.MyRobot.commands.SpyBoxShoot;
+//import org.usfirst.frc0.MyRobot.commands.Parallel;
+import org.usfirst.frc0.MyRobot.subsystems.Arm;
+import org.usfirst.frc0.MyRobot.subsystems.Catapult;
+import org.usfirst.frc0.MyRobot.subsystems.DriveTrain;
+import org.usfirst.frc0.MyRobot.subsystems.Intake;
+import org.usfirst.frc0.MyRobot.subsystems.LatchCylinder;
+import org.usfirst.frc0.MyRobot.subsystems.NavXBoard;
+import org.usfirst.frc0.MyRobot.subsystems.ParallelBar;
+import org.usfirst.frc0.MyRobot.subsystems.Pneumatics;
+import org.usfirst.frc0.MyRobot.subsystems.Sensors;
+import org.usfirst.frc0.MyRobot.subsystems.WinchCylinder;
+
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.Preferences;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
-import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-import org.usfirst.frc0.MyRobot.commands.*;
-//import org.usfirst.frc0.MyRobot.commands.Parallel;
-import org.usfirst.frc0.MyRobot.subsystems.*;
-import org.usfirst.frc0.MyRobot.RobotMap;
-import edu.wpi.first.wpilibj.Ultrasonic;
-
-import com.kauailabs.nav6.frc.IMU;
-import com.ni.vision.NIVision;
-import com.ni.vision.NIVision.DrawMode;
-import com.ni.vision.NIVision.Image;
-import com.ni.vision.NIVision.ShapeMode;
 
 @SuppressWarnings("unused")
 public class Robot extends IterativeRobot {
@@ -51,11 +59,11 @@ public class Robot extends IterativeRobot {
     public static ParallelBar parallelBar;
     //public static Lights lights;
     public static Pneumatics pneumatics;
-    public static Cameras cameras;
+    //public static Cameras cameras;
     //public static CameraServer server;
-    int session;
-    Image frame;
-    NIVision.Rect rect;
+    //int session;
+    //Image frame;
+    //NIVision.Rect rect;
     
     public void robotInit() {
     RobotMap.init();
@@ -64,7 +72,7 @@ public class Robot extends IterativeRobot {
         driveTrain = new DriveTrain();
         sensors = new Sensors();
         catapult = new Catapult();    
-        cameras = new Cameras();
+        //cameras = new Cameras();
         latchCylinder = new LatchCylinder();
         winchCylinder = new WinchCylinder();
         
@@ -157,7 +165,7 @@ public class Robot extends IterativeRobot {
     public void teleopInit() {
     	
     	if (autonomousCommand != null) autonomousCommand.cancel();
-    	cameras.init();
+    	//cameras.init();
 
 
         
@@ -193,7 +201,7 @@ public class Robot extends IterativeRobot {
         SmartDashboard.putNumber("Arm Encoder", RobotMap.armMotor.getEncPosition());
         //SmartDashboard.putNumber("Ultrasonic Range: Ready to shoot when under 5 inches", Robot.sensors.ultrasonic.getRangeInches());
         //server.startAutomaticCapture("cam2");
-        cameras.updateCam();
+        //cameras.updateCam();
         
         
         
