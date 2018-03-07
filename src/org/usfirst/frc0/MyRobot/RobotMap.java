@@ -13,6 +13,7 @@ import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import java.util.Vector;
 import com.kauailabs.navx_mxp.AHRS;
 import com.ctre.*;
+import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 /**
  * The RobotMap is a mapping from the ports sensors and actuators are wired into
  * to a variable name. This provides flexibility changing wiring, makes checking
@@ -30,8 +31,8 @@ public class RobotMap {
 	public static SpeedController dTSparkController4;
 	public static RobotDrive driveTrainRobotDrive;
 	////Intake and Winch Motors
-	public static CANTalon winchMotor;
-	public static CANTalon armMotor;
+	public static TalonSRX winchMotor;
+	public static TalonSRX armMotor;
 	public static Talon intakeRoller;
     public static Talon intake;
 	// Encoders
@@ -72,8 +73,8 @@ public class RobotMap {
     ////Change for Competition Robot end
     	driveTrainRobotDrive = new RobotDrive(dTSparkController1, dTSparkController2,
     	dTSparkController3, dTSparkController4);
-    	winchMotor = new CANTalon(7);
-    	armMotor = new CANTalon(8);
+    	winchMotor = new CANTalon(8);
+    	armMotor = new CANTalon(9);
     	
     	//remember CANTalons are named by the RIO Interface ID number
     	//parallelBar = new CANTalon(9);

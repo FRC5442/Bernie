@@ -41,7 +41,6 @@ import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
-@SuppressWarnings("unused")
 public class Robot extends IterativeRobot {
 
     Command autonomousCommand;
@@ -58,7 +57,10 @@ public class Robot extends IterativeRobot {
     public static Arm arm;
     public static ParallelBar parallelBar;
     //public static Lights lights;
-    public static Pneumatics pneumatics;
+    ////////////////////////////////////////
+    // Disable because we don't need air for open house demo and, "it's just sucking up all the juice, man!"
+    //public static Pneumatics pneumatics;
+    ////////////////////////////////////////
     //public static Cameras cameras;
     //public static CameraServer server;
     //int session;
@@ -85,7 +87,7 @@ public class Robot extends IterativeRobot {
         arm = new Arm();
         parallelBar = new ParallelBar();
         //lights = new Lights();
-        pneumatics = new Pneumatics();
+        //pneumatics = new Pneumatics();
  
         /** Smart Dashboard
          * This gives a sendable chooser for the Autonomous Modes
@@ -198,7 +200,7 @@ public class Robot extends IterativeRobot {
         double Pressure = (250*(VoltsOut/5)-25);
         SmartDashboard.putNumber("Pneumatic Pressure", Pressure);
         SmartDashboard.putNumber("Pneumatic Gauge Output Voltage", VoltsOut);
-        SmartDashboard.putNumber("Arm Encoder", RobotMap.armMotor.getEncPosition());
+        //SmartDashboard.putNumber("Arm Encoder", RobotMap.armMotor.getencPosition());
         //SmartDashboard.putNumber("Ultrasonic Range: Ready to shoot when under 5 inches", Robot.sensors.ultrasonic.getRangeInches());
         //server.startAutomaticCapture("cam2");
         //cameras.updateCam();
